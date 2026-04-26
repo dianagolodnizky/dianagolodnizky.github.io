@@ -1144,6 +1144,57 @@ if (prevBtn && nextBtn && book) {
             book.classList.remove("at-beginning");
         }
     }
+
+    // MOBILE FULLSCREEN FLIPBOOK
+if (window.innerWidth <= 991.98) {
+    const mobileOverlay = document.querySelector('#mobile-book-overlay');
+    const mobileContent = document.querySelector('.mobile-book-content');
+    const closeMobileBook = document.querySelector('#close-mobile-book');
+    const flipbook = document.querySelector('.main-work-item .flipbook-south-korea');
+
+    if (mobileOverlay && flipbook) {
+        
+        // פותחים את ה-overlay בלחיצה על חץ
+        [prevBtn, nextBtn].forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (mobileOverlay.style.display !== 'flex') {
+                    mobileContent.appendChild(flipbook);
+                    mobileOverlay.style.display = 'flex';
+                    document.body.classList.add('no-scroll');
+
+                    anime({
+                        targets: '#mobile-book-overlay',
+                        opacity: [0, 1],
+                        duration: 400,
+                        easing: 'easeOutQuad'
+                    });
+                }
+            });
+        });
+
+        // סגירה
+        const closeMobileOverlay = () => {
+            anime({
+                targets: '#mobile-book-overlay',
+                opacity: 0,
+                duration: 300,
+                easing: 'easeInQuad',
+                complete: () => {
+                    mobileOverlay.style.display = 'none';
+                    document.body.classList.remove('no-scroll');
+                    // מחזירים את הספר למקומו המקורי
+                    document.querySelector('.main-work-item').appendChild(flipbook);
+                }
+            });
+        };
+
+        if (closeMobileBook) {
+            closeMobileBook.addEventListener('click', closeMobileOverlay);
+        }
+
+        mobileOverlay.querySelector('.mobile-book-overlay-bg').addEventListener('click', closeMobileOverlay);
+    }
+}
     
 function updateButtons() {
     nextBtn.style.visibility = currentLocation <= 1 ? 'hidden' : 'visible';
