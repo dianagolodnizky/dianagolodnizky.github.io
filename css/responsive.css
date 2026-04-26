@@ -230,12 +230,16 @@
         font-size:5.6rem;
         line-height:70px;
         margin-top:20px;
+        margin-bottom:15px;
     }
     
     .heading p.p1 {
         font-size: 1rem;
         margin-top:10px;
         line-height: 1.5;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        padding: 0;
     }
 
     .heading p.p2 { 

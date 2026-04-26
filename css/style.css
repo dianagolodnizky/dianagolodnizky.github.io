@@ -332,7 +332,7 @@ header .heading{
     margin-bottom:0;
     padding: 7px 20px;
     border-radius: 4px;
-    background-color:rgb(137, 123, 150);;
+    background-color:rgb(137, 123, 150);
     display: inline;
     transition: none !important;
     opacity: 0;
@@ -1630,7 +1630,9 @@ body.no-scroll {
 }
 
 /* ---body-vs-mind --- */
-
+.body-vs-mind{
+    padding: 120px;
+}
 .body-vs-mind .work-img{
     height:auto;
     width:65vw;

@@ -431,10 +431,14 @@ $(document).ready(function() {
         easing: 'easeInOutQuint'
     })
     .add({
-        targets: '.heading p.p1',
-        backgroundColor: ['rgba(137, 123, 150, 0)', 'rgba(137, 123, 150, 1)'],
-        boxShadow: ['0px 0px 20px 0px rgba(30, 30, 30, 0)', '0px 0px 20px 0px rgba(30, 30, 30, 0.5)'],
-        opacity: [0, 1], 
+         targets: '.heading p.p1',
+        backgroundColor: window.innerWidth <= 575.98 
+            ? ['rgba(137, 123, 150, 0)', 'rgba(137, 123, 150, 0)']
+            : ['rgba(137, 123, 150, 0)', 'rgba(137, 123, 150, 1)'],
+        boxShadow: window.innerWidth <= 575.98
+            ? ['0px 0px 0px 0px rgba(30,30,30,0)', '0px 0px 0px 0px rgba(30,30,30,0)']
+            : ['0px 0px 20px 0px rgba(30, 30, 30, 0)', '0px 0px 20px 0px rgba(30, 30, 30, 0.5)'],
+        opacity: [0, 1],
         duration: 300,
         easing: 'linear'
     })
