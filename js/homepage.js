@@ -427,9 +427,9 @@ $(document).ready(function() {
         targets: '.mobile-nav-trigger',
         translateX: [60, 0],
         opacity: [0, 1],
-        duration: 1500,
+        duration: 500,
         easing: 'easeOutQuint'
-    }, '-=1400')
+    }, 400)
     
     .add({
         targets: '.heading h1 span',
@@ -531,29 +531,101 @@ if (window.innerWidth <= 767.98) {
         }, '-=1000');
     }
 
-    function animateSection2() {
-        var tlSection2 = anime.timeline({ easing: 'easeInOutQuint', duration: 1500 });
-        tlSection2
-        .add({
-            targets: '.reveal-h2-s2 span',
-            translateX: [60, 0],
-            opacity: [0, 1],
-            delay: anime.stagger(60)
-        })
+function animateSection2() {
+    var tlSection2 = anime.timeline({ easing: 'easeInOutQuint', duration: 1500 });
+    tlSection2
+    .add({
+        targets: '.reveal-h2-s2 span',
+        translateX: [60, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(60)
+    })
 
-        .add({ targets: 
-            '.reveal-star-s2', 
-            scale: [0, 1.2, 1], 
-            opacity: [0, 1], 
-            duration: 400 
-        }, '-=800')
+    .add({ 
+        targets: '.reveal-star-s2', 
+        scale: [0, 1.2, 1], 
+        opacity: [0, 1], 
+        duration: 400 
+    }, '+=500')
 
-        .add({ 
-            targets: '.reveal-p-s2 span', 
-            opacity: [0, 1], 
-            delay: anime.stagger(5) 
-        }, '-=600')
-    }
+    .add({ 
+        targets: '.reveal-p-s2 span', 
+        opacity: [0, 1], 
+        delay: anime.stagger(5) 
+    }, '-=300')
+
+    .add({
+        targets: '.project1 .shadow-container',
+        clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'],
+        translateX: [-15, 0],
+        duration: 1200,
+        easing: 'easeInOutQuad'
+    }, '+=800')
+
+    .add({
+        targets: '.project1 h4 span',
+        translateX: [50, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(40),
+        duration: 600,
+        easing: 'easeOutQuint'
+    }, '+=300')
+
+    .add({
+        targets: '.project1 p span',
+        opacity: [0, 1],
+        delay: anime.stagger(5),
+        duration: 400
+    }, '+=200')
+
+    .add({
+        targets: '.project2 .shadow-container',
+        clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'],
+        translateX: [-15, 0],
+        duration: 1200,
+        easing: 'easeInOutQuad'
+    }, '+=800')
+
+    .add({
+        targets: '.project2 h4 span',
+        translateX: [50, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(40),
+        duration: 600,
+        easing: 'easeOutQuint'
+    }, '+=300')
+
+    .add({
+        targets: '.project2 p span',
+        opacity: [0, 1],
+        delay: anime.stagger(5),
+        duration: 400
+    }, '+=200')
+
+    .add({
+        targets: '.project3 .shadow-container',
+        clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'],
+        translateX: [-15, 0],
+        duration: 1200,
+        easing: 'easeInOutQuad'
+    }, '+=800')
+
+    .add({
+        targets: '.project3 h4 span',
+        translateX: [50, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(40),
+        duration: 600,
+        easing: 'easeOutQuint'
+    }, '+=300')
+
+    .add({
+        targets: '.project3 p span',
+        opacity: [0, 1],
+        delay: anime.stagger(5),
+        duration: 400
+    }, '+=200')
+}
 
 
     function animateSection3() {
@@ -858,7 +930,7 @@ function animateWorkItem() {
     
 // PROJECT CARD ENTRANCE
 
-const PROJECT_ENTRY_DELAY = 3600;
+const PROJECT_ENTRY_DELAY = 1500;
 const PROJECT_STAGGER_DELAY = 50;
 
 function animateProject(projectSelector, index = 0) {
@@ -927,9 +999,6 @@ const observer = new IntersectionObserver((entries) => {
 
             if (target.classList.contains('section1')) { animateSection1(); observer.unobserve(target); }
             else if (target.classList.contains('section2')) { animateSection2(); observer.unobserve(target); }
-            else if (target.classList.contains('project1')) { animateProject('.project1', 0); observer.unobserve(target); }
-            else if (target.classList.contains('project2')) { animateProject('.project2', 1); observer.unobserve(target); }
-            else if (target.classList.contains('project3')) { animateProject('.project3', 2); observer.unobserve(target); }
             else if (target.classList.contains('section3')) { animateSection3(); observer.unobserve(target); }
             else if (target.classList.contains('section4')) { animateSection4(); observer.unobserve(target); }
             else if (target.classList.contains('section5')) { animateSection5(); observer.unobserve(target); }
@@ -940,7 +1009,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.2 });
 
-document.querySelectorAll('.section1, .section2, .section3, .project1, .project2, .project3, .section4, .section5, .section6, footer, .main-work-item').forEach(section => {
+document.querySelectorAll('.section1, .section2, .section3, .section4, .section5, .section6, footer, .main-work-item').forEach(section => {
         observer.observe(section);
     });
 });
