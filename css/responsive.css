@@ -430,6 +430,16 @@
         line-height:21px;
     }
     
+    .project1 a, .project2 a, .project3 a{
+        display: inline-block;
+        line-height: 0;
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        -webkit-box-shadow: -9px -9px 30px 5px #B3B3B3; 
+        box-shadow: -9px -9px 30px 5px #B3B3B3;
+        transition: transform 0.3s ease;   
+    }
 
 
 
@@ -1779,6 +1789,8 @@
         width:80%;
 
     }
+
+    
 
 
     /* --- Section3 --- */

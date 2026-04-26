@@ -847,7 +847,7 @@ function animateWorkItem() {
 // PROJECT CARD ENTRANCE
 
 const PROJECT_ENTRY_DELAY = 3600;
-const PROJECT_STAGGER_DELAY = 200;
+const PROJECT_STAGGER_DELAY = 50;
 
 function animateProject(projectSelector, index = 0) {
     var tl = anime.timeline({ 
