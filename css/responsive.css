@@ -572,13 +572,13 @@
 
     .main-work-item .task-description{
         width:100%;
-        font-size:var(--body-small);
-        line-height:22px;
+        font-size:1rem;
+        line-height:23px;
         margin-top:30px;
     }
 
     .main-work-item .book{
-        width:40w;
+        width:40vw;
         z-index: 4;
         margin-top:20%;
     }
