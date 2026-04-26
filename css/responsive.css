@@ -760,6 +760,10 @@
 
     /* --- body-vs-mind.html --- */
 
+    .body-vs-mind{
+        padding:120px 30px;
+    }
+
     .body-vs-mind .custom-grid .h-line {
         top: 290px !important; 
     }
@@ -3016,6 +3020,12 @@
         display: block;
     }
 
+    /* --- body-vs-mind.html --- */
+
+    .body-vs-mind{
+        padding:120px 60px;
+    }
+
 
 
     /* --- Section4 --- */
@@ -3915,8 +3925,6 @@
         grid-column: 2 / 7; 
         margin-top: calc((100vw - 120px) * 1.5368 );
     }
-
-
 
     #next-btn {
         right: calc(50% - var(--book-offset) - 80px - 120px); 
