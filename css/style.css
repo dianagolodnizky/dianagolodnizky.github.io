@@ -1693,7 +1693,7 @@ body.no-scroll {
     background-size: cover;
     padding: var(--layout-grid-column);
     position: relative; 
-    height:1700px;
+    height:100%;
 }
 
 .section4 h2{

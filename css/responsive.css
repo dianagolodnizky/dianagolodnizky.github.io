@@ -6364,8 +6364,12 @@
 
     /* --- Section4 --- */
 
+    .section4{
+        padding: var(--layout-grid-column);
+    }
+
     .section4 .custom-grid .h-61 { 
-        top: 55%; 
+        top: 60%; 
     }
 
     /* --- Section5 --- */
