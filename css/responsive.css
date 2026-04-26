@@ -18,8 +18,7 @@
     }
 
     p{
-        font-size:var(--body-small);
-        line-height:23px;
+        font-size:var(--body-regular);
     }
 
     .br-hide{
