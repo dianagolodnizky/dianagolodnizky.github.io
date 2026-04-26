@@ -765,7 +765,7 @@
     }
 
     .body-vs-mind .work-img{
-        width:100%;
+        height:80vh;
     }
 
     @media (min-width: 342px) and (max-width: 414px) {
