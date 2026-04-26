@@ -369,8 +369,8 @@
     }
 
     .section2-disclaimer p {
-        font-size: 0.7rem;
-        line-height: 16px;
+        font-size: var(--body-small);
+        line-height:21px;
     }
     
     .section2-disclaimer .note {
