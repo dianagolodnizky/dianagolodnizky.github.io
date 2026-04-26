@@ -769,7 +769,7 @@
     }
 
     .body-vs-mind .work-img{
-        width:80vw;
+        width:100%;
     }
 
     @media (min-width: 342px) and (max-width: 414px) {
