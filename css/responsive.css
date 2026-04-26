@@ -61,6 +61,7 @@
         z-index: 10002;
         width: 40px;
         height: 40px;
+        opacity: 0;
     }
 
     .main-navbar .menu img{
@@ -951,7 +952,7 @@
     }
 
     .skills p{
-        font-size:1.1rem
+        font-size:var(--body-regular);
     }
 
     .section4 h4 {
@@ -1514,6 +1515,7 @@
         top: 32px;
         right: 20px;
         z-index: 10002;
+        opacity: 0;
     }
 
     .main-navbar .menu img {
@@ -2614,6 +2616,7 @@
         z-index: 10002;
         width: 40px;
         height: 40px;
+        opacity: 0;
     }
 
     .mobile-nav-trigger .close-icon {

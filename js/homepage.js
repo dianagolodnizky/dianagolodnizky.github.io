@@ -422,6 +422,14 @@ $(document).ready(function() {
         easing: 'easeOutQuint'
         
     }, '-=600')
+
+    .add({
+        targets: '.mobile-nav-trigger',
+        translateX: [60, 0],
+        opacity: [0, 1],
+        duration: 1500,
+        easing: 'easeOutQuint'
+    }, '-=1400')
     
     .add({
         targets: '.heading h1 span',
