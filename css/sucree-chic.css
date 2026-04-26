@@ -1,0 +1,886 @@
+/* ======================================================
+   SUCRÉE CHIC — CASE STUDY PAGE STYLES
+   Inherits: style.css | responsive.css
+   ====================================================== */
+
+
+/* =========== CS HEADER ===========*/
+
+.cs-header {
+	background: url('../images/Section4-background.png');
+	background-size: cover;
+	background-position: center;
+	min-height: 88vh;
+	padding: 160px var(--layout-grid-column) var(--layout-grid-column);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	overflow: hidden;
+}
+
+.cs-back-btn {
+	position: absolute;
+	top: 115px;
+	left: var(--layout-grid-column);
+	width: 140px;
+	z-index: 10;
+	opacity: 0;
+}
+
+.cs-hero-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 60px;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.cs-hero-left {
+	width: 50%;
+	position: relative;
+	z-index: 2;
+}
+
+/* The case-study title reuses h1 tag but at a slightly tighter size */
+.cs-header h1 {
+	font-size: 9rem;
+	color: var(--white);
+	line-height: 0.85;
+	letter-spacing: -2px;
+	margin-bottom: 0;
+}
+
+.cs-header h1 span {
+	display: inline-block;
+	opacity: 0;
+}
+
+/* "CASE STUDY" subtitle label above the title */
+.cs-label {
+	font-family: "Montserrat", sans-serif;
+	font-size: 0.95rem;
+	font-weight: 300;
+	letter-spacing: 6px;
+	text-transform: uppercase;
+	color: var(--light-purple);
+	margin-bottom: 16px;
+	display: block;
+}
+
+.cs-label span {
+	display: inline-block;
+	opacity: 0;
+}
+
+.cs-description {
+	color: var(--white);
+	font-weight: 300;
+	max-width: 420px;
+	line-height: 26px;
+	margin-top: 25px;
+	margin-bottom: 40px;
+	font-size: var(--body-regular);
+}
+
+.cs-description span {
+	display: inline-block;
+	opacity: 0;
+}
+
+.cs-cta {
+	width: 160px;
+	opacity: 0;
+}
+
+.cs-hero-right {
+	width: 45%;
+	position: relative;
+	z-index: 2;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.cs-mockup-img {
+	width: 100%;
+	max-width: 560px;
+	border-radius: 8px;
+	box-shadow: -20px -20px 60px rgba(0, 0, 0, 0.45);
+	opacity: 0;
+	display: block;
+}
+
+
+/* =========== SHARED SECTION STRUCTURE ===========*/
+
+.cs-about,
+.cs-problem,
+.cs-solution,
+.cs-objectives,
+.cs-challenges,
+.cs-audience,
+.cs-research,
+.cs-needs {
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+
+/* Two-column inner layout used by About / Problem / Solution */
+.cs-section-inner {
+	display: flex;
+	align-items: flex-start;
+	gap: 60px;
+}
+
+.cs-section-label {
+	width: 40%;
+	flex-shrink: 0;
+	padding-top: 5px;
+}
+
+.cs-section-content {
+	width: 60%;
+}
+
+/* Two-column split used by Objectives / Challenges */
+.cs-split-layout {
+	display: flex;
+	align-items: flex-start;
+	gap: 60px;
+}
+
+.cs-split-left {
+	width: 40%;
+	flex-shrink: 0;
+}
+
+.cs-split-right {
+	width: 60%;
+}
+
+
+/* =========== ABOUT SECTION ===========*/
+
+.cs-about {
+	background: url('../images/homepage-section1.png');
+	background-size: cover;
+	background-position: center;
+	padding: var(--layout-grid-column);
+	padding-top: 100px;
+	padding-bottom: 110px;
+}
+
+/* Grid line positions */
+.cs-about .custom-grid .h-about-1 { top: 38%; }
+.cs-about .custom-grid .h-about-2 { top: 72%; }
+
+.cs-about h2 {
+	font-size: var(--h2-size);
+	color: var(--white);
+	line-height: 0.9;
+}
+
+.cs-about h2 span {
+	display: inline-block;
+	opacity: 0;
+}
+
+.cs-about p {
+	color: var(--white);
+	font-weight: 300;
+	line-height: 26px;
+	margin-bottom: 28px;
+}
+
+.cs-about p span {
+	display: inline-block;
+	opacity: 0;
+}
+
+
+/* =========== PROBLEM STATEMENT SECTION ===========*/
+
+.cs-problem {
+	background-color: var(--grey);
+	padding: var(--layout-grid-column);
+	padding-top: 90px;
+	padding-bottom: 90px;
+}
+
+.cs-problem .custom-grid .h-problem-1 { top: 55%; }
+
+.cs-problem h2 {
+	font-size: var(--h2-size);
+	color: var(--dark-purple);
+	line-height: 0.9;
+}
+
+.cs-problem h2 span {
+	display: inline-block;
+	opacity: 0;
+}
+
+.cs-problem p {
+	color: var(--black);
+	font-weight: 300;
+	line-height: 26px;
+}
+
+.cs-problem p span {
+	display: inline-block;
+	opacity: 0;
+}
+
+
+/* =========== SOLUTION SECTION ===========*/
+
+.cs-solution {
+	background: url('../images/section3-background.png');
+	background-size: cover;
+	background-position: center;
+	padding: var(--layout-grid-column);
+	padding-top: 100px;
+	padding-bottom: 110px;
+}
+
+.cs-solution .custom-grid .h-solution-1 { top: 50%; }
+
+.cs-solution h2 {
+	font-size: var(--h2-size);
+	color: var(--white);
+	line-height: 0.9;
+}
+
+.cs-solution h2 span {
+	display: inline-block;
+	opacity: 0;
+}
+
+.cs-solution p {
+	color: var(--white);
+	font-weight: 300;
+	line-height: 26px;
+	margin-bottom: 28px;
+}
+
+.cs-solution p span {
+	display: inline-block;
+	opacity: 0;
+}
+
+
+/* =========== OBJECTIVES & GOALS SECTION ===========*/
+
+.cs-objectives {
+	background-color: var(--white);
+	padding: var(--layout-grid-column);
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+/* V-line: same treatment as section4/section6 — no scale(), height-based */
+.cs-objectives .custom-grid div {
+	background-color: var(--light-purple) !important;
+}
+
+.cs-objectives .cs-obj-v-line {
+	left: 40%;
+	width: 1px;
+	height: 0%;
+	top: 0;
+	transform: none !important;
+	opacity: 0.6;
+}
+
+.cs-objectives h2 {
+	font-size: var(--h2-size);
+	color: var(--black);
+	line-height: 0.9;
+}
+
+.cs-objectives h2 span {
+	display: inline-block;
+	opacity: 0;
+}
+
+.cs-goals-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 45px 55px;
+}
+
+.cs-goal-wide {
+	grid-column: 1 / -1;
+}
+
+.cs-goal-item {
+	opacity: 0;
+	transform: translateY(18px);
+}
+
+.cs-goal-accent {
+	width: 28px;
+	height: 2px;
+	background-color: var(--dark-purple);
+	margin-bottom: 14px;
+	transform-origin: left;
+	transform: scaleX(0);
+	display: block;
+}
+
+.cs-goal-item h4 {
+	color: var(--dark-purple);
+	font-size: 1.85rem;
+	line-height: 1.1;
+	margin-bottom: 10px;
+}
+
+.cs-goal-item p {
+	color: var(--black);
+	font-weight: 300;
+	line-height: 23px;
+	margin: 0;
+	font-size: var(--body-regular);
+}
+
+
+/* =========== BUSINESS CHALLENGES SECTION ===========*/
+
+.cs-challenges {
+	background-color: #EAE5E0;
+	padding: var(--layout-grid-column);
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.cs-challenges .custom-grid div {
+	background-color: var(--light-purple) !important;
+}
+
+.cs-challenges .cs-chal-v-line {
+	left: 40%;
+	width: 1px;
+	height: 0%;
+	top: 0;
+	transform: none !important;
+	opacity: 0.6;
+}
+
+.cs-challenges h2 {
+	font-size: var(--h2-size);
+	color: var(--black);
+	line-height: 0.9;
+}
+
+.cs-challenges h2 span {
+	display: inline-block;
+	opacity: 0;
+}
+
+.cs-challenges-list {
+	display: flex;
+	flex-direction: column;
+}
+
+.cs-challenge-item {
+	padding: 28px 0;
+	opacity: 0;
+	transform: translateY(14px);
+}
+
+.cs-challenge-title {
+	font-family: "League Gothic", sans-serif;
+	font-size: var(--h5-size);
+	color: var(--black);
+	line-height: 1.1;
+	margin-bottom: 10px;
+}
+
+.cs-challenge-line {
+	height: 1px;
+	background-color: var(--dark-purple);
+	width: 0%;
+	margin-bottom: 14px;
+	transform-origin: left;
+	display: block;
+}
+
+.cs-challenge-item p {
+	color: var(--black);
+	font-weight: 300;
+	line-height: 23px;
+	margin: 0;
+	width: 90%;
+	font-size: var(--body-regular);
+}
+
+
+/* =========== TARGET AUDIENCE SECTION ===========*/
+
+.cs-audience {
+	background-color: var(--white);
+	padding: var(--layout-grid-column);
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.cs-audience-heading {
+	margin-bottom: 70px;
+}
+
+.cs-audience h2 {
+	font-size: var(--h2-size);
+	color: var(--black);
+	line-height: 0.9;
+}
+
+.cs-audience h2 span {
+	display: inline-block;
+	opacity: 0;
+}
+
+.cs-personas {
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+}
+
+/* Individual persona: image + text side by side */
+.cs-persona {
+	display: flex;
+	align-items: center;
+	gap: 40px;
+	opacity: 0;
+	transform: translateX(-25px);
+}
+
+.cs-persona-lg {
+	margin-left: auto;
+	width: 75%;
+}
+
+.cs-persona-row {
+	display: flex;
+	gap: 50px;
+	align-items: flex-start;
+}
+
+.cs-persona-sm {
+	width: 48%;
+}
+
+.cs-persona-wide {
+	width: 65%;
+}
+
+/* Image placeholder blocks — replace src with actual persona photos */
+.cs-persona-img {
+	flex-shrink: 0;
+	border-radius: 4px;
+	overflow: hidden;
+	background-color: var(--grey); /* fallback if image missing */
+	background-size: cover;
+	background-position: center;
+}
+
+.cs-persona-lg .cs-persona-img {
+	width: 230px;
+	height: 230px;
+}
+
+.cs-persona-sm .cs-persona-img {
+	width: 185px;
+	height: 185px;
+}
+
+.cs-persona-wide .cs-persona-img {
+	width: 185px;
+	height: 185px;
+}
+
+/* Use CSS background for persona images so the blocks show colour 
+   even if the image files don't exist yet */
+.cs-persona-img-1 { background-color: #C4BAD0; }
+.cs-persona-img-2 { background-color: #D4C8B8; }
+.cs-persona-img-3 { background-color: #B8C4D0; }
+.cs-persona-img-4 { background-color: #C8C4B8; }
+
+.cs-persona-text h4 {
+	font-size: 2rem;
+	line-height: 1.1;
+	color: var(--dark-purple);
+	margin-bottom: 12px;
+}
+
+.cs-persona-text p {
+	color: var(--black);
+	font-weight: 300;
+	line-height: 23px;
+	margin: 0;
+	font-size: var(--body-regular);
+}
+
+
+/* =========== QUANTITATIVE RESEARCH SECTION ===========*/
+
+.cs-research {
+	background: url('../images/Selected-projects-background.png');
+	background-size: cover;
+	background-position: center;
+	padding: var(--layout-grid-column);
+	padding-top: 100px;
+	padding-bottom: 110px;
+}
+
+.cs-research h2 {
+	font-size: var(--h2-size);
+	color: var(--white);
+	line-height: 0.9;
+	margin-bottom: 80px;
+}
+
+.cs-research h2 span {
+	display: inline-block;
+	opacity: 0;
+}
+
+.cs-stats-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 60px 40px;
+}
+
+.cs-stat {
+	opacity: 0;
+	transform: translateY(18px);
+}
+
+.cs-stat-display {
+	display: flex;
+	align-items: baseline;
+	gap: 3px;
+	margin-bottom: 12px;
+}
+
+.cs-stat-number {
+	font-family: "League Gothic", sans-serif;
+	font-size: 5rem;
+	color: var(--white);
+	line-height: 1;
+	display: inline-block;
+}
+
+.cs-stat-symbol {
+	font-family: "League Gothic", sans-serif;
+	font-size: 3rem;
+	color: var(--light-purple);
+	display: inline-block;
+}
+
+.cs-stat p {
+	color: var(--white);
+	font-weight: 300;
+	line-height: 20px;
+	font-size: var(--body-small);
+	margin: 0;
+}
+
+
+/* =========== USER NEEDS SECTION ===========*/
+
+.cs-needs {
+	background-color: var(--white);
+	padding: var(--layout-grid-column);
+	padding-top: 100px;
+	padding-bottom: 110px;
+}
+
+.cs-needs .custom-grid div {
+	background-color: var(--light-purple) !important;
+}
+
+.cs-needs .cs-needs-v-line {
+	left: 50%;
+	width: 1px;
+	height: 0%;
+	top: 0;
+	transform: none !important;
+	opacity: 0.6;
+}
+
+.cs-needs h2 {
+	font-size: var(--h2-size);
+	color: var(--black);
+	line-height: 0.9;
+	margin-bottom: 65px;
+}
+
+.cs-needs h2 span {
+	display: inline-block;
+	opacity: 0;
+}
+
+.cs-needs-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0 80px;
+}
+
+.cs-needs-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.cs-need-item {
+	display: flex;
+	gap: 22px;
+	align-items: flex-start;
+	padding: 30px 0;
+	border-top: 1px solid var(--grey);
+	opacity: 0;
+	transform: translateY(14px);
+}
+
+.cs-need-number {
+	font-family: "League Gothic", sans-serif;
+	font-size: var(--h4-size);
+	color: var(--dark-purple);
+	flex-shrink: 0;
+	line-height: 1.1;
+	min-width: 38px;
+}
+
+.cs-need-content h5 {
+	font-family: "League Gothic", sans-serif;
+	font-size: var(--h5-size);
+	color: var(--black);
+	line-height: 1.1;
+	margin-bottom: 9px;
+}
+
+.cs-need-content p {
+	color: var(--black);
+	font-weight: 300;
+	line-height: 23px;
+	margin: 0;
+	font-size: var(--body-regular);
+}
+
+
+/* =========== FOOTER OVERRIDES FOR CS PAGE ===========*/
+/* Footer image paths in homepage use "../images" but root-level HTML uses "images"
+   The style.css handles footer background. The contact images are referenced inline. */
+
+footer .contact-info img {
+	width: 35px;
+}
+
+
+/* =========== RESPONSIVE — CS PAGE ===========*/
+
+@media (max-width: 1199.98px) {
+	.cs-goals-grid {
+		gap: 35px 40px;
+	}
+
+	.cs-stats-grid {
+		grid-template-columns: repeat(4, 1fr);
+		gap: 50px 30px;
+	}
+
+	.cs-stat-number {
+		font-size: 4rem;
+	}
+}
+
+@media (max-width: 991.98px) {
+	.cs-header {
+		padding: 130px 60px 80px;
+		min-height: auto;
+	}
+
+	.cs-back-btn {
+		left: 60px;
+		top: 90px;
+	}
+
+	.cs-hero-content {
+		flex-direction: column;
+		gap: 50px;
+	}
+
+	.cs-hero-left,
+	.cs-hero-right {
+		width: 100%;
+	}
+
+	.cs-hero-right {
+		justify-content: center;
+	}
+
+	.cs-header h1 {
+		font-size: 7rem;
+	}
+
+	/* Sections padding */
+	.cs-about,
+	.cs-problem,
+	.cs-solution,
+	.cs-objectives,
+	.cs-challenges,
+	.cs-audience,
+	.cs-research,
+	.cs-needs {
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+
+	/* Two-column → stack */
+	.cs-section-inner,
+	.cs-split-layout {
+		flex-direction: column;
+		gap: 35px;
+	}
+
+	.cs-section-label,
+	.cs-section-content,
+	.cs-split-left,
+	.cs-split-right {
+		width: 100%;
+	}
+
+	.cs-goals-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.cs-needs-grid {
+		grid-template-columns: 1fr;
+		gap: 0;
+	}
+
+	.cs-stats-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 40px 40px;
+	}
+
+	/* Audience personas */
+	.cs-persona-lg,
+	.cs-persona-wide {
+		width: 100%;
+	}
+
+	.cs-persona-row {
+		flex-direction: column;
+		gap: 40px;
+	}
+
+	.cs-persona-sm {
+		width: 100%;
+	}
+
+	/* V-lines hidden on tablet */
+	.cs-objectives .cs-obj-v-line,
+	.cs-challenges .cs-chal-v-line,
+	.cs-needs .cs-needs-v-line {
+		display: none;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.cs-header {
+		padding: 110px 30px 60px;
+	}
+
+	.cs-back-btn {
+		left: 30px;
+		top: 75px;
+	}
+
+	.cs-header h1 {
+		font-size: 5rem;
+	}
+
+	.cs-about,
+	.cs-problem,
+	.cs-solution,
+	.cs-objectives,
+	.cs-challenges,
+	.cs-audience,
+	.cs-research,
+	.cs-needs {
+		padding-left: 30px;
+		padding-right: 30px;
+		padding-top: 70px;
+		padding-bottom: 70px;
+	}
+
+	.cs-goals-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.cs-goal-wide {
+		grid-column: auto;
+	}
+
+	.cs-stats-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 35px 25px;
+	}
+
+	.cs-stat-number {
+		font-size: 3.5rem;
+	}
+
+	.cs-stat-symbol {
+		font-size: 2.2rem;
+	}
+
+	.cs-persona-lg .cs-persona-img {
+		width: 150px;
+		height: 150px;
+	}
+
+	.cs-persona-sm .cs-persona-img,
+	.cs-persona-wide .cs-persona-img {
+		width: 130px;
+		height: 130px;
+	}
+}
+
+@media (max-width: 575.98px) {
+	.cs-header h1 {
+		font-size: 4rem;
+	}
+
+	.cs-label {
+		font-size: 0.8rem;
+		letter-spacing: 4px;
+	}
+
+	.cs-stats-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.cs-need-item {
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.cs-need-number {
+		min-width: auto;
+	}
+
+	.cs-persona {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.cs-persona-lg .cs-persona-img,
+	.cs-persona-sm .cs-persona-img,
+	.cs-persona-wide .cs-persona-img {
+		width: 100%;
+		height: 220px;
+	}
+}
