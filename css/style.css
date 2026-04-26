@@ -1625,7 +1625,7 @@ body.no-scroll {
 
 /* Mobile fullscreen flipbook */
 .mobile-book-overlay {
-    display: none;
+     display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -1647,7 +1647,7 @@ body.no-scroll {
 .mobile-book-content {
     position: relative;
     z-index: 10001;
-    width: 90vw;
+    width: auto;
     height: 90vh;
     display: flex;
     justify-content: center;
@@ -1660,10 +1660,74 @@ body.no-scroll {
 }
 
 .mobile-book-content .book {
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
     height: 70vh;
     width: auto;
+    aspect-ratio: 1 / 1.414
 }
 
+.mobile-book-content .book.at-beginning {
+    transform: none !important;
+}
+
+.mobile-book-content .book.at-end {
+    transform: none !important;
+}
+
+.mobile-book-content .flipbook-south-korea {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#close-mobile-book {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    z-index: 10002;
+    background: var(--light-purple);
+    box-shadow: 0 0 10px rgba(144, 126, 161, 0.655);
+}
+
+#close-mobile-book .text {
+    font-size: 1.4rem;
+    color: var(--white);
+    font-family: sans-serif;
+    font-weight: 200;
+}
+
+.hint-wrapper {
+    position: fixed; 
+    top: 20px;
+    left: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px; 
+    z-index: 10003;
+}
+
+.rotate-hint {
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.8;
+    text-align: left;
+    margin: 0;
+    line-height: 1.45;   
+}
+
+.hint-wrapper img{
+    width:30px;
+    display: inline-block;
+}
 
 /* ---plugit-app --- */
 .main-work-item .custom-grid .plugit-line{
