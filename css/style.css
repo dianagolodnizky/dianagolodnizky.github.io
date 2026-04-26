@@ -1536,7 +1536,7 @@ body.no-scroll {
 
 .main-work-item .task-description{
     width:530px;
-    margin-top:0px;
+    margin-top:-10px;
     font-size: var(--body-regular);
 }
 
