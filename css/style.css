@@ -1647,42 +1647,52 @@ body.no-scroll {
 .mobile-book-content {
     position: relative;
     z-index: 10001;
-    width: auto;
-    height: 90vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.mobile-book-content .flipbook-south-korea {
-    width: 100%;
-    height: 100%;
-}
-
-.mobile-book-content .book {
-    position: relative !important;
-    left: auto !important;
-    transform: none !important;
-    height: 70vh;
-    width: auto;
-    aspect-ratio: 1 / 1.414
-}
-
-.mobile-book-content .book.at-beginning {
-    transform: none !important;
-}
-
-.mobile-book-content .book.at-end {
-    transform: none !important;
 }
 
 .mobile-book-content .flipbook-south-korea {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 0 !important;
+}
+
+.mobile-book-content .book {
+    position: absolute !important;
+    left: 50% !important;
+    width: 38vw !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1.414;
+    transform: translateX(-100%) !important;
+}
+
+.mobile-book-content .book.at-beginning {
+    transform: translateX(-50%) !important;
+}
+
+.mobile-book-content .book.at-end {
+    transform: translateX(-150%) !important;
+}
+
+.mobile-book-content #prev-btn {
+    position: absolute;
+    bottom: 40%;
+    left: calc(50% - 45px) !important;
+    transform: translateY(80%);
+}
+
+.mobile-book-content #next-btn {
+    position: absolute;
+    bottom: 40%;
+    left: calc(50% + 10px) !important;
+    transform: translateY(80%);
 }
 
 #close-mobile-book {
@@ -1738,6 +1748,7 @@ body.no-scroll {
 .body-vs-mind{
     padding: 120px;
 }
+
 .body-vs-mind .work-img{
     height:auto;
     width:65vw;
