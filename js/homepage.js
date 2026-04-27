@@ -1251,7 +1251,6 @@ function goPrevPage() {
 closeBook(true);
 updateButtons();
 
-
     const bookOverlay = document.querySelector("#book-overlay");
     const triggerBtn1 = document.querySelector(".work-item1 .btn-hover-effect");
     const closeBookBtn = document.querySelector("#close-overlay");

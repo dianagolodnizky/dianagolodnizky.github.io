@@ -788,7 +788,7 @@
 
     .body-vs-mind{
         padding:120px 30px;
-        height:100%;
+        height:auto;
     }
 
     .body-vs-mind .custom-grid .h-line {
@@ -822,9 +822,16 @@
 
 
     /* --- safe-driving-rules.html --- */
+
+    .body-work-item .safe-driving-rules{
+       height:auto; 
+       padding:120px 30px;
+    }
     
     #project-video{
         border-radius: 4px;
+        -webkit-box-shadow: -3px -3px 20px 5px #b3b3b382; 
+        box-shadow: -3px -3px 20px 5px #b3b3b382;
     }
 
     @media (min-width: 543px) and (max-width: 575.98px) {
