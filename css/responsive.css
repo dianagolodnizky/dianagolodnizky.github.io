@@ -3988,6 +3988,42 @@
         font-size: 1.6rem; 
     }
 
+    @media (max-width: 991.98px) and (orientation: landscape) {
+
+        .mobile-book-content .book {
+            width: 38vw !important;
+            aspect-ratio: 1 / 1.414;
+        }
+
+        .south-korea .mobile-book-content #prev-btn {
+            position: absolute !important;
+            top: calc(50% + 26.865vw + 15px) !important;
+            bottom: auto !important;
+            left: calc(50% - 45px) !important;
+            transform: none !important;
+        }
+
+        .south-korea .mobile-book-content #next-btn {
+            position: absolute !important;
+            top: calc(50% + 26.865vw + 15px) !important;
+            bottom: auto !important;
+            left: calc(50% + 10px) !important;
+            transform: none !important;
+        }
+
+        .mobile-book-content .book.at-beginning {
+            transform: translateX(-50%) !important;
+        }
+
+        .mobile-book-content .book.at-end {
+            transform: translateX(-150%) !important;
+        }
+
+        .mobile-book-content .book {
+            transform: translateX(-100%) !important;
+        }
+    }
+
     .bodymind .close-overlay-btn{
         width: 43px;
         height: 43px;
