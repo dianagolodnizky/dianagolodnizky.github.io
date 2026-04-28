@@ -95,7 +95,6 @@ a{
     height: 90px;
     background-color: transparent;
     opacity: 0;
-    transform: translateY(-20px); /* הזזה קלה למעלה כדי ליצור אפקט כניסה */
     transition: opacity 0.8s ease, transform 0.8s ease;
     pointer-events: none;
 }
@@ -2507,7 +2506,6 @@ body.preloader-active {
     background: none;
 }
 
-
 #preloader-svg {
     width: 100%;
     height: auto;
@@ -2516,10 +2514,19 @@ body.preloader-active {
     z-index: 15;
 }
 
-#preloader-svg .svg-main-text,
-#preloader-svg .svg-sub-text,
-#preloader-svg .svg-lines {
-    opacity: 1;
+#preloader-svg .svg-main-text path {
+    opacity: 0;
+}
+
+#preloader-svg .svg-sub-text path,
+#preloader-svg .svg-lines path,
+#preloader-svg .svg-lines rect {
+    opacity: 0;
+}
+
+.preloader-logo-wrap {
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .preloader-line-wrapper {
@@ -2530,11 +2537,7 @@ body.preloader-active {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.1);
     transform: translateX(-50%);
-    
-    /* ה-z-index הזה גבוה מההילה (-1) אך נמוך מהלוגו (10) */
     z-index: 7; 
-    
-    /* ביטול המסכה כדי שהקו יהיה שלם */
     -webkit-mask-image: none;
     mask-image: none;
 }

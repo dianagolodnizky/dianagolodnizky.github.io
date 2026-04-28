@@ -1,4 +1,4 @@
-/// =========== PRELOADER ===========
+// =========== PRELOADER ===========
 (function() {
     const preloader = document.getElementById('preloader');
     if (!preloader) return;
@@ -12,16 +12,62 @@
     let animFrame;
     let isExiting = false;
 
+    function startLogoAnimation() {
+
+        if (progress >= 15 && !logoAnimationStarted) { // התחלה ב-50 אחוז במקום בסוף
+            startLogoAnimation();
+            logoAnimationStarted = true; 
+        }
+        
+        if (!logoWrap) return;
+        
+        logoWrap.style.opacity = "1";
+        
+        const tl = anime.timeline({
+            easing: 'easeOutQuart'
+        });
+
+        tl
+        .add({
+            targets: '#preloader-svg .svg-main-text path',
+            opacity: [0, 1],
+            translateX: [60, 0],
+            filter: ['blur(10px)', 'blur(0px)'],
+            duration: 800,
+            delay: anime.stagger(80), 
+            easing: 'easeOutQuart'
+        })
+
+        .add({
+            targets: '#preloader-svg .svg-lines path:nth-child(1)',
+            opacity: [0, 1],
+            strokeDashoffset: [anime.setDashoffset, 0],
+            duration: 700,
+            easing: 'easeOutQuart'
+        }, "-=600")
+
+        .add({
+            targets: '#preloader-svg .svg-lines path:nth-child(n+2), #preloader-svg rect',
+            opacity: [0, 1],
+            duration: 500,
+            easing: 'easeOutQuart'
+        }, "-=400") 
+
+        .add({
+            targets: '#preloader-svg .svg-sub-text path',
+            opacity: [0, 1],
+            translateX: [60, 0],
+            filter: ['blur(10px)', 'blur(0px)'],
+            duration: 700,
+            delay: anime.stagger(60),
+            easing: 'easeOutQuart'
+        }, "-=400");
+    }
+
     setTimeout(() => {
-        if (percentEl) {
-            percentEl.style.opacity = "1";
-        }
-        if (logoWrap) {
-            logoWrap.style.opacity = "1";
-            const svgParts = logoWrap.querySelectorAll('.svg-lines, .svg-main-text, .svg-sub-text');
-            svgParts.forEach(part => part.style.opacity = "1");
-        }
-    }, 100);
+        if (percentEl) percentEl.style.opacity = "1";
+        startLogoAnimation();
+    }, 200);
 
     function updateTarget() {
         const resources = performance.getEntriesByType('resource');
@@ -40,16 +86,9 @@
         
         if (percentEl) {
             percentEl.textContent = p + '%';
-            
-            // שינוי המיקום כך שיהיה קצת יותר למטה:
-            // הפחתנו 5vh מהגובה הנוכחי (p). 
-            // אם את רוצה שהם יהיו עוד יותר למטה, תשני את ה-5 למספר גדול יותר.
-            percentEl.style.bottom = (p - 5) + 'vh';
+            percentEl.style.bottom = (p - 4) + 'vh';
         }
-
-        if (fill) {
-            fill.style.height = p + '%';
-        }
+        if (fill) fill.style.height = p + '%';
 
         if (!isExiting) animFrame = requestAnimationFrame(animateProgress);
     }
@@ -60,11 +99,6 @@
         isExiting = true;
         cancelAnimationFrame(animFrame);
 
-        progress = 100;
-        if (percentEl) {
-            percentEl.textContent = '100%';
-            percentEl.style.bottom = '95vh'; // תואם לחישוב של (100 - 5)
-        }
         if (fill) {
             fill.style.transition = 'height 0.3s ease';
             fill.style.height = '100%';
@@ -87,17 +121,17 @@
                 complete: function() {
                     preloader.style.display = 'none';
                     document.body.classList.remove('preloader-active');
+                    const navbar = document.querySelector('.main-navbar');
+                    if (navbar) navbar.classList.add('is-visible');
                 }
             });
         }, 500);
     }
 
     if (document.readyState === 'complete') {
-        setTimeout(exitPreloader, 600);
+        setTimeout(exitPreloader, 1000); 
     } else {
-        window.addEventListener('load', function() {
-            setTimeout(exitPreloader, 400);
-        });
+        window.addEventListener('load', () => setTimeout(exitPreloader, 800));
     }
 })();
 
