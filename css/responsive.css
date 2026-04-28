@@ -768,6 +768,17 @@
         }
     }
 
+    /* Mobile fullscreen flipbook */
+    .hint-wrapper img{
+        width:25px;
+    }
+
+    .rotate-hint {
+        font-size: 0.9rem;
+        line-height: 1.4; 
+        width:70%;  
+    }
+
 
 
     /* --- plugit-app.html --- */
