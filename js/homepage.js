@@ -120,6 +120,8 @@ function startLogoAnimation() {
                 easing: 'linear'
             });
 
+            
+
             anime({
                 targets: '.pre-panel-1, .pre-panel-2, .pre-panel-3, .pre-panel-4',
                 scaleY: [1, 0],
