@@ -1,69 +1,28 @@
-// =========== PRELOADER ===========
+/// =========== PRELOADER ===========
 (function() {
     const preloader = document.getElementById('preloader');
     if (!preloader) return;
 
     const fill = document.getElementById('preloader-line-fill');
     const percentEl = document.getElementById('preloader-percent');
+    const logoWrap = document.querySelector('.preloader-logo-wrap');
+    
     let progress = 0;
     let targetProgress = 0;
     let animFrame;
     let isExiting = false;
 
-    // Logo entrance
     setTimeout(() => {
-        anime({
-            targets: '.preloader-percent',
-            opacity: [0, 1],
-            duration: 500,
-            easing: 'easeOutQuint'
-        });
+        if (percentEl) {
+            percentEl.style.opacity = "1";
+        }
+        if (logoWrap) {
+            logoWrap.style.opacity = "1";
+            const svgParts = logoWrap.querySelectorAll('.svg-lines, .svg-main-text, .svg-sub-text');
+            svgParts.forEach(part => part.style.opacity = "1");
+        }
+    }, 100);
 
-        anime({
-            targets: '.preloader-logo-wrap',
-            opacity: [0, 1],
-            scale: [0.9, 1],
-            duration: 800,
-            easing: 'easeOutQuint',
-            complete: function() {
-                // Animate SVG groups sequentially
-                anime({
-                    targets: '#preloader-svg .svg-lines',
-                    opacity: [0, 1],
-                    duration: 600,
-                    easing: 'easeOutQuint'
-                });
-                anime({
-                    targets: '#preloader-svg .svg-main-text',
-                    opacity: [0, 1],
-                    translateY: [8, 0],
-                    duration: 700,
-                    delay: 200,
-                    easing: 'easeOutQuint'
-                });
-                anime({
-                    targets: '#preloader-svg .svg-sub-text',
-                    opacity: [0, 1],
-                    translateY: [5, 0],
-                    duration: 600,
-                    delay: 500,
-                    easing: 'easeOutQuint'
-                });
-
-                // Subtle breathing loop
-                anime({
-                    targets: '.preloader-logo-wrap',
-                    scale: [1, 1.02],
-                    duration: 2200,
-                    loop: true,
-                    direction: 'alternate',
-                    easing: 'easeInOutSine'
-                });
-            }
-        });
-    }, 200);
-
-    // Progress tracking
     function updateTarget() {
         const resources = performance.getEntriesByType('resource');
         if (resources.length === 0) { targetProgress = 90; return; }
@@ -78,79 +37,59 @@
             progress = Math.min(progress, targetProgress);
         }
         const p = Math.round(progress);
-        percentEl.textContent = p + '%';
+        
+        if (percentEl) {
+            percentEl.textContent = p + '%';
+            
+            // שינוי המיקום כך שיהיה קצת יותר למטה:
+            // הפחתנו 5vh מהגובה הנוכחי (p). 
+            // אם את רוצה שהם יהיו עוד יותר למטה, תשני את ה-5 למספר גדול יותר.
+            percentEl.style.bottom = (p - 5) + 'vh';
+        }
 
-        // Update percent position: top of the fill
-        const trackHeight = document.querySelector('.preloader-line-track').offsetHeight;
-        const fillPx = (p / 100) * trackHeight;
-        percentEl.style.top = (trackHeight - fillPx - 30) + 'px';
-        percentEl.style.paddingTop = '0';
-
-        fill.style.height = p + '%';
+        if (fill) {
+            fill.style.height = p + '%';
+        }
 
         if (!isExiting) animFrame = requestAnimationFrame(animateProgress);
     }
     animFrame = requestAnimationFrame(animateProgress);
 
-    // Exit
     function exitPreloader() {
         if (isExiting) return;
         isExiting = true;
         cancelAnimationFrame(animFrame);
 
-        // Complete to 100%
         progress = 100;
-        percentEl.textContent = '100%';
-        fill.style.transition = 'height 0.3s ease';
-        fill.style.height = '100%';
-
-        const trackHeight = document.querySelector('.preloader-line-track').offsetHeight;
-        percentEl.style.top = '0px';
+        if (percentEl) {
+            percentEl.textContent = '100%';
+            percentEl.style.bottom = '95vh'; // תואם לחישוב של (100 - 5)
+        }
+        if (fill) {
+            fill.style.transition = 'height 0.3s ease';
+            fill.style.height = '100%';
+        }
 
         setTimeout(() => {
-            // Fade out content
             anime({
-                targets: '.preloader-logo-wrap, .preloader-line-wrapper',
+                targets: '.preloader-logo-wrap, .preloader-line-wrapper, #preloader-percent',
                 opacity: 0,
-                duration: 350,
-                easing: 'easeInQuint'
+                duration: 400,
+                easing: 'linear'
             });
 
-            // Panels slide up one by one
             anime({
-                targets: '.pre-panel-1',
+                targets: '.pre-panel-1, .pre-panel-2, .pre-panel-3, .pre-panel-4',
                 scaleY: [1, 0],
-                duration: 550,
-                delay: 150,
-                easing: 'easeInOutQuint'
-            });
-            anime({
-                targets: '.pre-panel-2',
-                scaleY: [1, 0],
-                duration: 550,
-                delay: 280,
-                easing: 'easeInOutQuint'
-            });
-            anime({
-                targets: '.pre-panel-3',
-                scaleY: [1, 0],
-                duration: 550,
-                delay: 400,
-                easing: 'easeInOutQuint'
-            });
-            anime({
-                targets: '.pre-panel-4',
-                scaleY: [1, 0],
-                duration: 550,
-                delay: 520,
-                easing: 'easeInOutQuint',
+                duration: 600,
+                delay: anime.stagger(100),
+                easing: 'easeInOutQuart',
                 complete: function() {
                     preloader.style.display = 'none';
                     document.body.classList.remove('preloader-active');
                 }
             });
-
-        }, 400);
+        }, 500);
     }
 
     if (document.readyState === 'complete') {
