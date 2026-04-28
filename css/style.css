@@ -2440,3 +2440,120 @@ footer .v-line {
         transform: scale(1.01);
     }
 }
+
+/* =========== PRELOADER ===========*/
+body.preloader-active {
+    overflow: hidden;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    overflow: hidden;
+    background: transparent;
+}
+
+.preloader-panel {
+    position: absolute;
+    top: 0;
+    width: 25%;
+    height: 100%;
+    background-color: var(--dark-purple);
+    z-index: 1;
+    transform-origin: top center;
+    transform: scaleY(1);
+}
+
+.pre-panel-1 { left: 0%; }
+.pre-panel-2 { left: 25%; }
+.pre-panel-3 { left: 50%; }
+.pre-panel-4 { left: 75%; }
+
+.preloader-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.preloader-logo-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 220px;
+    opacity: 0;
+}
+
+#preloader-svg {
+    width: 100%;
+    height: auto;
+}
+
+#preloader-svg .svg-main-text {
+    opacity: 0;
+}
+
+#preloader-svg .svg-sub-text {
+    opacity: 0;
+}
+
+#preloader-svg .svg-lines {
+    opacity: 0;
+}
+
+.preloader-line-wrapper {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 0;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.preloader-percent {
+    color: var(--white);
+    font-family: "League Gothic", sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    padding-top: 20px;
+}
+
+.preloader-line-track {
+    width: 1px;
+    height: 100vh;
+    background-color: rgba(245, 245, 245, 0.15);
+    position: relative;
+}
+
+.preloader-line-fill {
+    width: 1px;
+    height: 0%;
+    background-color: var(--white);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.15s linear;
+}
