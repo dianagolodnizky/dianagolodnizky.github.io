@@ -14,7 +14,7 @@
 
     function startLogoAnimation() {
 
-        if (progress >= 15 && !logoAnimationStarted) { // התחלה ב-50 אחוז במקום בסוף
+        if (progress >= 20 && !logoAnimationStarted) { 
             startLogoAnimation();
             logoAnimationStarted = true; 
         }
