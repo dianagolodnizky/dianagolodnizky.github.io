@@ -2477,10 +2477,21 @@ body.preloader-active {
     transform: scaleY(1);
 }
 
-.pre-panel-1 { left: 0%; }
-.pre-panel-2 { left: 25%; }
-.pre-panel-3 { left: 50%; }
-.pre-panel-4 { left: 75%; }
+.pre-panel-1 { 
+    left: 0%; 
+}
+
+.pre-panel-2 { 
+    left: 25%; 
+}
+
+.pre-panel-3 { 
+    left: 50%; 
+}
+
+.pre-panel-4 { 
+    left: 75%; 
+}
 
 .preloader-content {
     position: absolute;

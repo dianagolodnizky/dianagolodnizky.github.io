@@ -57,7 +57,7 @@
 
     .mobile-nav-trigger {
         position: fixed;
-        top: 0px;
+        top: 15px;
         right: 20px;
         z-index: 10002;
         width: 40px;
@@ -68,6 +68,7 @@
     .main-navbar .menu img{
         width: 45px;
         height: 45px;
+        margin-top:-4px;
     }
 
     .mobile-nav-trigger .close-icon {
@@ -1457,6 +1458,11 @@
     .open-to-work p {
         font-size: 1.1rem;
     }
+
+    #preloader{
+        background-color: var(--white) !important;
+    }
+
 }
 
 
@@ -1572,6 +1578,7 @@
     .main-navbar .menu img {
         width: 48px;
         height: 48px;
+        margin-top:0;
     }
 
 
@@ -2556,6 +2563,10 @@
         font-size: 1.1rem;
     }
 
+    #preloader{
+        background-color: var(--white) !important;
+    }
+
 }
 
 
@@ -2596,6 +2607,7 @@
     .main-navbar .menu img{
         width: 50px;
         height: 50px;
+        margin-top:0;
     }
 
     button.mobile-nav-trigger{
@@ -3678,6 +3690,33 @@
         footer .right-side{
             margin-left:13%;
         }
+    }
+
+    #preloader{
+        background-color: var(--white) !important;
+    }
+
+    .preloader-panel {
+        width: 100% !important;
+        height: 25% !important;
+        left: 0 !important;
+        top: auto !important; 
+    }
+    .pre-panel-1 { 
+        top: 0% !important; 
+        left: 0 !important; 
+    }
+    .pre-panel-2 { 
+        top: 25% !important; 
+        left: 0 !important; 
+    }
+    .pre-panel-3 { 
+        top: 50% !important; 
+        left: 0 !important; 
+    }
+    .pre-panel-4 { 
+        top: 75% !important; 
+        left: 0 !important; 
     }
     
 }

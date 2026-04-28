@@ -120,19 +120,52 @@ function startLogoAnimation() {
                 easing: 'linear'
             });
 
-            anime({
-                targets: '.pre-panel-1, .pre-panel-2, .pre-panel-3, .pre-panel-4',
-                scaleY: [1, 0],
-                duration: 1000,
-                delay: anime.stagger(100),
-                easing: 'easeInOutQuart',
-                complete: function() {
-                    preloader.style.display = 'none';
-                    document.body.classList.remove('preloader-active');
-                    const navbar = document.querySelector('.main-navbar');
-                    if (navbar) navbar.classList.add('is-visible');
-                }
-            });
+            const isMobile = window.innerWidth <= 991.98;
+
+if (isMobile) {
+    // כפיית סטייל ישירות על הפאנלים
+    const panels = ['.pre-panel-1', '.pre-panel-2', '.pre-panel-3', '.pre-panel-4'];
+    const topValues = ['0%', '25%', '50%', '75%'];
+    
+    panels.forEach((selector, i) => {
+        const el = document.querySelector(selector);
+        if (el) {
+            el.style.width = '100%';
+            el.style.height = '25%';
+            el.style.left = '0';
+            el.style.top = topValues[i];
+            el.style.transform = 'none';
+        }
+    });
+
+    anime({
+        targets: panels,
+        translateX: ['0%', '-100%'], 
+        duration: 1000,
+        delay: anime.stagger(100),
+        easing: 'easeInOutQuart',
+        complete: function() {
+            preloader.style.display = 'none';
+            document.body.classList.remove('preloader-active');
+            const navbar = document.querySelector('.main-navbar');
+            if (navbar) navbar.classList.add('is-visible');
+        }
+    });
+} else {
+    anime({
+        targets: '.pre-panel-1, .pre-panel-2, .pre-panel-3, .pre-panel-4',
+        scaleY: [1, 0],
+        duration: 1000,
+        delay: anime.stagger(100),
+        easing: 'easeInOutQuart',
+        complete: function() {
+            preloader.style.display = 'none';
+            document.body.classList.remove('preloader-active');
+            const navbar = document.querySelector('.main-navbar');
+            if (navbar) navbar.classList.add('is-visible');
+        }
+    });
+}
         }, 500);
     }
 
@@ -303,31 +336,23 @@ function scrollToSection(targetId) {
 if (trigger && navMenu) {
     trigger.addEventListener("click", () => {
         isMenuOpen = !isMenuOpen;
-        
         trigger.classList.toggle("open");
-
-        if (isMenuOpen) {
-            navMenu.classList.add("open");
-            body.classList.add("menu-open");
-            navbar.classList.add('menu-is-open');
-        } else {
-            body.classList.remove("menu-open");
-            navMenu.style.position = 'fixed';
-            navMenu.style.height = '100vh';
-        }
 
         const tl = gsap.timeline({
             onComplete: () => {
                 if (!isMenuOpen) {
                     navMenu.classList.remove("open");
                     navbar.classList.remove('menu-is-open');
-                    navMenu.style.position = '';
-                    navMenu.style.height = '';
+                    body.classList.remove("menu-open"); // ← עבר לכאן
                 }
             }
         });
 
         if (isMenuOpen) {
+            navMenu.classList.add("open");
+            body.classList.add("menu-open");
+            navbar.classList.add('menu-is-open');
+
             tl.to(navMenu, { duration: 0.8, "--panel-right-1": "0%", ease: "power1.out" }, 0)
               .to(navMenu, { duration: 0.8, "--panel-right-2": "0%", ease: "power1.out" }, 0.1)
               .to(navMenu, { duration: 0.8, "--panel-right-3": "0%", ease: "power1.out" }, 0.2)
