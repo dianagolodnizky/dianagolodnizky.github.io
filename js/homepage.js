@@ -115,7 +115,7 @@
             anime({
                 targets: '.pre-panel-1, .pre-panel-2, .pre-panel-3, .pre-panel-4',
                 scaleY: [1, 0],
-                duration: 600,
+                duration: 1000,
                 delay: anime.stagger(100),
                 easing: 'easeInOutQuart',
                 complete: function() {
