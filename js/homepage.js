@@ -12,20 +12,16 @@
     let animFrame;
     let isExiting = false;
 
-    function startLogoAnimation() {
+    let logoLoopInterval = null;
+let logoAnimationStarted = false;
 
-        if (progress >= 20 && !logoAnimationStarted) { 
-            startLogoAnimation();
-            logoAnimationStarted = true; 
-        }
-        
-        if (!logoWrap) return;
-        
-        logoWrap.style.opacity = "1";
-        
-        const tl = anime.timeline({
-            easing: 'easeOutQuart'
-        });
+function startLogoAnimation() {
+    if (!logoWrap) return;
+    
+    logoWrap.style.opacity = "1";
+
+    function runOnce() {
+        const tl = anime.timeline({ easing: 'easeOutQuart' });
 
         tl
         .add({
@@ -34,25 +30,19 @@
             translateX: [60, 0],
             filter: ['blur(10px)', 'blur(0px)'],
             duration: 800,
-            delay: anime.stagger(80), 
-            easing: 'easeOutQuart'
+            delay: anime.stagger(80),
         })
-
         .add({
             targets: '#preloader-svg .svg-lines path:nth-child(1)',
             opacity: [0, 1],
             strokeDashoffset: [anime.setDashoffset, 0],
             duration: 700,
-            easing: 'easeOutQuart'
         }, "-=600")
-
         .add({
             targets: '#preloader-svg .svg-lines path:nth-child(n+2), #preloader-svg rect',
             opacity: [0, 1],
             duration: 500,
-            easing: 'easeOutQuart'
-        }, "-=400") 
-
+        }, "-=400")
         .add({
             targets: '#preloader-svg .svg-sub-text path',
             opacity: [0, 1],
@@ -60,9 +50,27 @@
             filter: ['blur(10px)', 'blur(0px)'],
             duration: 700,
             delay: anime.stagger(60),
-            easing: 'easeOutQuart'
         }, "-=400");
+
+        return tl.finished;
     }
+
+    async function loopAnimation() {
+        while (!isExiting) {
+            // Reset all elements
+            anime.set('#preloader-svg .svg-main-text path', { opacity: 0, translateX: 60, filter: 'blur(10px)' });
+            anime.set('#preloader-svg .svg-lines path, #preloader-svg rect', { opacity: 0 });
+            anime.set('#preloader-svg .svg-sub-text path', { opacity: 0, translateX: 60, filter: 'blur(10px)' });
+
+            await runOnce();
+
+            // Pause between loops
+            await new Promise(resolve => setTimeout(resolve, 800));
+        }
+    }
+
+    loopAnimation();
+}
 
     setTimeout(() => {
         if (percentEl) percentEl.style.opacity = "1";
