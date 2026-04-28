@@ -277,6 +277,7 @@ body.menu-open {
     -webkit-mask-image: none !important;
     background-color: transparent !important;
     transition: none !important; 
+    height: 100vh !important;
 }
 
 

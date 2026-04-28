@@ -36,6 +36,7 @@
 
     .main-navbar{
         height: 70px;
+        overflow: visible !important;
     }
 
     .main-navbar .container{
@@ -1543,6 +1544,7 @@
 
     .main-navbar{
         height: 80px;
+        overflow: visible !important;
     }
 
     .logo{
@@ -2577,6 +2579,7 @@
 
     .main-navbar{
         height:100px;
+        overflow: visible !important;
     }
 
     .logo{
@@ -3678,7 +3681,6 @@
     }
     
 }
-
 
 
 
