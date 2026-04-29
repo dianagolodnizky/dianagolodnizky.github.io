@@ -5622,7 +5622,7 @@
         width: 260px !important;
         font-size: clamp(1.2rem, 1.3rem, var(--body-regular));
         line-height: 30px;
-        margin-left: 32vw !important;
+        margin-left: 30vw !important;
         margin-bottom: 50px; 
     }
 

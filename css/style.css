@@ -2597,3 +2597,11 @@ body.preloader-active {
     background-color: var(--dark-purple);
     transition: height 0.1s ease-out;
 }
+
+body:not(.preloader-active) .main-navbar {
+    opacity: 1 !important;
+}
+
+body:not(.preloader-active) .mobile-nav-trigger {
+    opacity: 1 !important;
+}

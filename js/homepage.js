@@ -13,7 +13,7 @@
     let isExiting = false;
 
     let logoLoopInterval = null;
-let logoAnimationStarted = false;
+    let logoAnimationStarted = false;
 
 function startLogoAnimation() {
     if (!logoWrap) return;
@@ -68,7 +68,7 @@ function startLogoAnimation() {
     }
 
     loopAnimation();
-}
+    }
 
     setTimeout(() => {
         if (percentEl) percentEl.style.opacity = "1";
@@ -120,19 +120,19 @@ function startLogoAnimation() {
 
             const isMobile = window.innerWidth <= 991.98;
 
-if (isMobile) {
-    const panels = ['.pre-panel-1', '.pre-panel-2', '.pre-panel-3', '.pre-panel-4'];
-    const topValues = ['0%', '25%', '50%', '75%'];
-    
-    panels.forEach((selector, i) => {
-        const el = document.querySelector(selector);
-        if (el) {
-            el.style.width = '100%';
-            el.style.height = '25%';
-            el.style.left = '0';
-            el.style.top = topValues[i];
-            el.style.transform = 'none';
-        }
+    if (isMobile) {
+        const panels = ['.pre-panel-1', '.pre-panel-2', '.pre-panel-3', '.pre-panel-4'];
+        const topValues = ['0%', '25%', '50%', '75%'];
+        
+        panels.forEach((selector, i) => {
+            const el = document.querySelector(selector);
+            if (el) {
+                el.style.width = '100%';
+                el.style.height = '25%';
+                el.style.left = '0';
+                el.style.top = topValues[i];
+                el.style.transform = 'none';
+            }
     });
 
     anime({
@@ -147,22 +147,24 @@ if (isMobile) {
             const navbar = document.querySelector('.main-navbar');
             if (navbar) navbar.classList.add('is-visible');
         }
+
+        
     });
-} else {
-    anime({
-        targets: '.pre-panel-1, .pre-panel-2, .pre-panel-3, .pre-panel-4',
-        scaleY: [1, 0],
-        duration: 1000,
-        delay: anime.stagger(100),
-        easing: 'easeInOutQuart',
-        complete: function() {
-            preloader.style.display = 'none';
-            document.body.classList.remove('preloader-active');
-            const navbar = document.querySelector('.main-navbar');
-            if (navbar) navbar.classList.add('is-visible');
-        }
-    });
-}
+    } else {
+        anime({
+            targets: '.pre-panel-1, .pre-panel-2, .pre-panel-3, .pre-panel-4',
+            scaleY: [1, 0],
+            duration: 1000,
+            delay: anime.stagger(100),
+            easing: 'easeInOutQuart',
+            complete: function() {
+                preloader.style.display = 'none';
+                document.body.classList.remove('preloader-active');
+                const navbar = document.querySelector('.main-navbar');
+                if (navbar) navbar.classList.add('is-visible');
+            }
+        });
+    }
         }, 500);
     }
 
@@ -171,7 +173,13 @@ if (isMobile) {
     } else {
         window.addEventListener('load', () => setTimeout(exitPreloader, 800));
     }
+    
 })();
+
+const navbar = document.querySelector('.main-navbar');
+if (!document.getElementById('preloader') && navbar) {
+    navbar.classList.add('is-visible');
+}
 
 
 // SCROLL SMOOTHING VARIABLES (LERP)
