@@ -1593,7 +1593,7 @@ body.no-scroll {
     margin-top:35vh;
     overflow: visible;
     z-index: 1;
-    opacity: 0; 
+ 
 }
 
 .main-work-item .book{
@@ -1631,7 +1631,7 @@ body.no-scroll {
 
 /* Mobile fullscreen flipbook */
 .mobile-book-overlay {
-     display: none;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -1653,72 +1653,21 @@ body.no-scroll {
 .mobile-book-content {
     position: relative;
     z-index: 10001;
-    width: 100%;
-    height: 100%;
+    width: 90vw;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .mobile-book-content .flipbook-south-korea {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0 !important;
-    gap: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .mobile-book-content .book {
-    position: absolute !important;
-    left: 50% !important;
-    width: 38vw !important;
-    height: auto !important;
-    aspect-ratio: 1 / 1.414;
-    transform: translateX(-100%) !important;
-}
-
-.mobile-book-content .book.at-beginning {
-    transform: translateX(-50%) !important;
-}
-
-.mobile-book-content .book.at-end {
-    transform: translateX(-150%) !important;
-}
-
-.south-korea .mobile-book-content #prev-btn {
-    position: absolute !important;
-    top: calc(50% + 26.865vw + 15px) !important;
-    bottom: auto !important;
-    left: calc(50% - 45px) !important;
-    transform: none !important;
-}
-
-.south-korea .mobile-book-content #next-btn {
-    position: absolute !important;
-    top: calc(50% + 26.865vw + 15px) !important;
-    bottom: auto !important;
-    left: calc(50% + 10px) !important;
-    transform: none !important;
-}
-
-#close-mobile-book {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 35px;
-    height: 35px;
-    z-index: 10002;
-    background: var(--light-purple);
-    box-shadow: 0 0 10px rgba(144, 126, 161, 0.655);
-}
-
-#close-mobile-book .text {
-    font-size: 1.4rem;
-    color: var(--white);
-    font-family: sans-serif;
-    font-weight: 200;
+    height: 70vh;
+    width: auto;
 }
 
 .hint-wrapper {

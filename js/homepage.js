@@ -3,6 +3,27 @@
     const preloader = document.getElementById('preloader');
     if (!preloader) return;
 
+    const pagesToDisable = [
+        'south-korea-booklet.html',
+        'safe-driving-rules.html',
+        'plugit-app.html',
+        'faded-ashes.html',
+        'body-vs-mind.html',
+        'blockmates.html'
+    ];
+
+    // בדיקה האם שם הקובץ הנוכחי נמצא ברשימה
+    const currentPage = window.location.pathname.split('/').pop();
+    const shouldDisable = pagesToDisable.includes(currentPage);
+
+    if (shouldDisable) {
+        preloader.style.display = 'none';
+        document.body.classList.remove('preloader-active');
+        const navbar = document.querySelector('.main-navbar');
+        if (navbar) navbar.classList.add('is-visible');
+        return; // עוצר הכל רק בדפים שברשימה
+    }
+
     const fill = document.getElementById('preloader-line-fill');
     const percentEl = document.getElementById('preloader-percent');
     const logoWrap = document.querySelector('.preloader-logo-wrap');
@@ -173,13 +194,14 @@ function startLogoAnimation() {
     } else {
         window.addEventListener('load', () => setTimeout(exitPreloader, 800));
     }
-    
+
+    const navbar = document.querySelector('.main-navbar');
+    if (!document.getElementById('preloader') && navbar) {
+        navbar.classList.add('is-visible');
+    }
+
 })();
 
-const navbar = document.querySelector('.main-navbar');
-if (!document.getElementById('preloader') && navbar) {
-    navbar.classList.add('is-visible');
-}
 
 
 // SCROLL SMOOTHING VARIABLES (LERP)
@@ -1337,7 +1359,6 @@ if (window.innerWidth <= 991.98) {
 
     if (mobileOverlay && flipbook) {
         
-        // פותחים את ה-overlay בלחיצה על חץ
         [prevBtn, nextBtn].forEach(btn => {
             btn.addEventListener('click', () => {
                 if (mobileOverlay.style.display !== 'flex') {
@@ -1355,7 +1376,6 @@ if (window.innerWidth <= 991.98) {
             });
         });
 
-        // סגירה
         const closeMobileOverlay = () => {
             anime({
                 targets: '#mobile-book-overlay',
@@ -1365,7 +1385,6 @@ if (window.innerWidth <= 991.98) {
                 complete: () => {
                     mobileOverlay.style.display = 'none';
                     document.body.classList.remove('no-scroll');
-                    // מחזירים את הספר למקומו המקורי
                     document.querySelector('.main-work-item').appendChild(flipbook);
                 }
             });
@@ -1517,7 +1536,6 @@ updateButtons();
         if (currentLocation === totalPapers) {
             document.querySelector('.book').style.boxShadow = 'none';
         } else {
-            // החזרת הצל כשחוזרים אחורה מהדף האחרון
             document.querySelector('.book').style.boxShadow = '0 0 20px rgba(0,0,0,0.2)'; 
         }
             }

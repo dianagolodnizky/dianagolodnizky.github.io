@@ -64,6 +64,10 @@
         height: 40px;
         opacity: 0;
     }
+    
+    body.preloader-active .mobile-nav-trigger {
+        opacity: 0;
+    }
 
     .main-navbar .menu img{
         width: 45px;
@@ -222,7 +226,6 @@
         left: 0;
         z-index: 0;
     }
-
 
     header .heading { 
         padding-top: 90px; 
@@ -1575,12 +1578,15 @@
         opacity: 0;
     }
 
+    body.preloader-active .mobile-nav-trigger {
+        opacity: 0;
+    }
+
     .main-navbar .menu img {
         width: 48px;
         height: 48px;
         margin-top:0;
     }
-
 
     .close-icon {
         position: absolute;
@@ -2614,6 +2620,10 @@
         right:25px;
     }
 
+    body.preloader-active .mobile-nav-trigger {
+        opacity: 0;
+    }
+
 
     /* --- Header --- */
     header {
@@ -2818,6 +2828,7 @@
         height: 100vh !important;
         width: 100% !important;
     }
+
 
 
     /* --- Section1 --- */
@@ -4030,41 +4041,7 @@
         font-size: 1.6rem; 
     }
 
-    @media (max-width: 991.98px) and (orientation: landscape) {
-
-        .mobile-book-content .book {
-            width: 38vw !important;
-            aspect-ratio: 1 / 1.414;
-        }
-
-        .south-korea .mobile-book-content #prev-btn {
-            position: absolute !important;
-            top: calc(50% + 26.865vw + 15px) !important;
-            bottom: auto !important;
-            left: calc(50% - 45px) !important;
-            transform: none !important;
-        }
-
-        .south-korea .mobile-book-content #next-btn {
-            position: absolute !important;
-            top: calc(50% + 26.865vw + 15px) !important;
-            bottom: auto !important;
-            left: calc(50% + 10px) !important;
-            transform: none !important;
-        }
-
-        .mobile-book-content .book.at-beginning {
-            transform: translateX(-50%) !important;
-        }
-
-        .mobile-book-content .book.at-end {
-            transform: translateX(-150%) !important;
-        }
-
-        .mobile-book-content .book {
-            transform: translateX(-100%) !important;
-        }
-    }
+   
 
     .bodymind .close-overlay-btn{
         width: 43px;
