@@ -12,7 +12,6 @@
         'blockmates.html'
     ];
 
-    // בדיקה האם שם הקובץ הנוכחי נמצא ברשימה
     const currentPage = window.location.pathname.split('/').pop();
     const shouldDisable = pagesToDisable.includes(currentPage);
 
@@ -21,7 +20,7 @@
         document.body.classList.remove('preloader-active');
         const navbar = document.querySelector('.main-navbar');
         if (navbar) navbar.classList.add('is-visible');
-        return; // עוצר הכל רק בדפים שברשימה
+        return; 
     }
 
     const fill = document.getElementById('preloader-line-fill');
@@ -168,7 +167,6 @@ function startLogoAnimation() {
             const navbar = document.querySelector('.main-navbar');
             if (navbar) navbar.classList.add('is-visible');
         }
-
         
     });
     } else {
