@@ -598,9 +598,8 @@ header .heading{
     position: relative;
     overflow: hidden;
     border-radius: 5px;
-    -webkit-box-shadow: -4px -4px 30px 5px #bab9b9; 
-    box-shadow: -4px -4px 30px 5px #bab9b9;
-    transition: transform 0.3s ease;   
+    box-shadow: -4px -4px 30px 5px rgba(186, 185, 185, 0); 
+    transition: transform 0.3s ease, box-shadow 2.5s ease;  
 }
 
 .shadow-container {
@@ -727,11 +726,11 @@ header .heading{
 }
 
 .work-item1, .work-item2 {
-    filter: drop-shadow(-3px -3px 10px rgba(135, 135, 135, 0.285));
+    filter: drop-shadow(-2px -2px 8px rgba(149, 149, 149, 0.285));
 }
 
 .work-item3, .work-item4, .work-item5, .work-item6  {
-    filter: drop-shadow(-3px -3px 10px rgba(106, 106, 106, 0.437));
+    filter: drop-shadow(-2px -2px 8px rgba(138, 138, 138, 0.437));
 }
 
 .card span{

@@ -57,15 +57,13 @@ function startLogoAnimation() {
 
     async function loopAnimation() {
         while (!isExiting) {
-            // Reset all elements
+
             anime.set('#preloader-svg .svg-main-text path', { opacity: 0, translateX: 60, filter: 'blur(10px)' });
             anime.set('#preloader-svg .svg-lines path, #preloader-svg rect', { opacity: 0 });
             anime.set('#preloader-svg .svg-sub-text path', { opacity: 0, translateX: 60, filter: 'blur(10px)' });
 
             await runOnce();
-
-            // Pause between loops
-            await new Promise(resolve => setTimeout(resolve, 800));
+            await new Promise(resolve => setTimeout(resolve, 2000));
         }
     }
 
@@ -123,7 +121,6 @@ function startLogoAnimation() {
             const isMobile = window.innerWidth <= 991.98;
 
 if (isMobile) {
-    // כפיית סטייל ישירות על הפאנלים
     const panels = ['.pre-panel-1', '.pre-panel-2', '.pre-panel-3', '.pre-panel-4'];
     const topValues = ['0%', '25%', '50%', '75%'];
     
@@ -284,8 +281,7 @@ function updateNavbarColor() {
             navbar.style.backgroundColor = navColorMap[i].color;
             break;
         }
-    }
-    
+    }  
 }
 
 function updateNavbarColor() {
@@ -614,8 +610,8 @@ $(document).ready(function() {
             ? ['rgba(137, 123, 150, 0)', 'rgba(137, 123, 150, 0)']
             : ['rgba(137, 123, 150, 0)', 'rgba(137, 123, 150, 1)'],
         boxShadow: window.innerWidth <= 575.98
-            ? ['0px 0px 0px 0px rgba(30,30,30,0)', '0px 0px 0px 0px rgba(30,30,30,0)']
-            : ['0px 0px 20px 0px rgba(30, 30, 30, 0)', '0px 0px 20px 0px rgba(30, 30, 30, 0.5)'],
+            ? ['0px 0px 0px 0px rgba(66, 58, 75, 0)', '0px 0px 0px 0px rgba(66, 58, 75, 0)']
+            : ['0px 0px 10px 0px rgba(66, 58, 75, 0.39)', '0px 0px 10px 0px rgba(66, 58, 75, 0.39)'],
         opacity: [0, 1],
         duration: 300,
         easing: 'linear'
@@ -729,7 +725,10 @@ function animateSection2() {
         clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'],
         translateX: [-15, 0],
         duration: 1200,
-        easing: 'easeInOutQuad'
+        easing: 'linear',
+        complete: function() {
+            document.querySelector('.project1 a').style.boxShadow = '-4px -4px 30px 5px rgba(186, 185, 185, 1)';
+        }
     }, '+=800')
 
     .add({
@@ -753,7 +752,10 @@ function animateSection2() {
         clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'],
         translateX: [-15, 0],
         duration: 1200,
-        easing: 'easeInOutQuad'
+        easing: 'linear',
+        complete: function() {
+            document.querySelector('.project2 a').style.boxShadow = '-4px -4px 30px 5px rgba(186, 185, 185, 1)';
+        }
     }, '+=800')
 
     .add({
@@ -777,7 +779,10 @@ function animateSection2() {
         clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'],
         translateX: [-15, 0],
         duration: 1200,
-        easing: 'easeInOutQuad'
+        easing: 'linear',
+        complete: function() {
+            document.querySelector('.project3 a').style.boxShadow = '-4px -4px 30px 5px rgba(186, 185, 185, 1)';
+        }
     }, '+=800')
 
     .add({

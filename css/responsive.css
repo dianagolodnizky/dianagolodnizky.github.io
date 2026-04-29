@@ -4715,7 +4715,7 @@
 @media (min-width: 1200px) and (max-width: 1399.98px) { 
 
     :root {
-        --h1-size:11rem;
+        --h1-size:10rem;
         --h2-size:5.8rem;
         --h4-size:2.5rem;
     }
@@ -4755,14 +4755,15 @@
     
     .heading p.p1{
         font-size: 1.1rem;
+        padding: 6px 20px; 
     }
 
     .heading p.p2{
         margin-bottom:50px;
         width:200px !important;
-        font-size: 1rem;
+        font-size: 0.9rem;
         line-height:24px;
-        margin-left: 400px !important;  
+        margin-left: 400px !important; 
     }
 
     @media (min-width: 1200px) and (max-width: 1280px){
@@ -5629,11 +5630,11 @@
     @media (min-width: 1400px) and (max-width:1500px) {
 
         .heading h1 {
-            font-size: 12rem;
+            font-size: 11rem;
         }
 
         .heading p.p1 {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
 
         .heading p.p2 {
