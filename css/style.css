@@ -280,6 +280,45 @@ body.menu-open {
     height: 100vh !important;
 }
 
+/* ---work-item internal-navbar --- */
+    .internal-navbar .menu ul li a {
+        color: var(--white) !important;
+        text-decoration: none;
+        font-family: 'League Gothic', sans-serif;
+        text-transform: uppercase;
+        margin-left: 0;
+        font-size: 2.5rem !important;
+        transition: opacity 0.3s ease;
+    }
+
+    .toggle ul {
+        gap:4px;
+    }
+
+    .internal-navbar .menu ul li.active a {
+         color: var(--black) !important;
+    }
+
+    .internal-navbar .logo {
+        display: block;
+        height: auto;
+        max-width: 120px;
+    }
+
+    .internal-navbar .logo-on-scroll {
+        display: none;
+    }
+
+    .internal-navbar.scrolled .logo {
+        display: none !important;
+    }
+
+    .internal-navbar.scrolled .logo-on-scroll {
+        display: block !important;
+        height: auto;
+        max-width: 120px;
+    }
+
 
 
 
@@ -1598,12 +1637,52 @@ body.no-scroll {
 }
 
 .main-work-item .flipbook-south-korea{
-    margin-top:35vh;
+    margin-top: 0 !important;
     overflow: visible;
     z-index: 1;
     opacity: 0;
     margin-bottom:190px;
  
+}
+
+.flipbook-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 200px;
+    
+}
+
+.hint-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px; 
+    margin-top:20px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.rotate-hint {
+    color: var(--black);
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.8;
+    text-align: left;
+    margin: 0;
+    line-height: 1.45; 
+    width:70%;  
+}
+
+.hint-wrapper p {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.hint-wrapper img{
+    width:23px;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(10px);
 }
 
 .main-work-item .book{
@@ -1680,38 +1759,6 @@ body.no-scroll {
     width: auto;
 }
 
-.hint-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px; 
-    z-index: 10003;
-    margin-top:60px;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.rotate-hint {
-    color: var(--black);
-    font-size: 1rem;
-    font-weight: 300;
-    opacity: 0.8;
-    text-align: left;
-    margin: 0;
-    line-height: 1.45;   
-}
-
-.hint-wrapper p {
-    opacity: 0;
-    transform: translateY(10px);
-}
-
-.hint-wrapper img{
-    width:23px;
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(10px);
-}
 
 .mobile-book-overlay .close-overlay-btn{
     width:33px;

@@ -615,7 +615,7 @@
     .internal-navbar .menu ul li.active a {
          color: var(--black) !important;
     }
-
+    
 
     /* --- south-korea-booklet.html --- */
 
@@ -880,6 +880,7 @@
     .faded-ashes .work-img{
         margin-top:80px;
     }
+    
 
     /* --- safe-driving-rules.html --- */
 
@@ -902,6 +903,10 @@
 
         .safe-driving-rules video{
             margin-top:90px;
+        }
+
+         .faded-ashes .custom-grid .h-line {
+            top: 300px !important; 
         }
     }
 
@@ -987,6 +992,10 @@
 
         .blockmates .work-img{
             margin-top:70px;
+        }
+
+        .rotate-hint .xs-br {
+            display: none; 
         }
     }
     
@@ -2023,25 +2032,6 @@
     }
 
     
-    /* ---work-item internal-navbar --- */
-    .internal-navbar .menu ul li a {
-        color: var(--white) !important;
-        text-decoration: none;
-        font-family: 'League Gothic', sans-serif;
-        text-transform: uppercase;
-        margin-left: 0;
-        font-size: 2.5rem !important;
-        transition: opacity 0.3s ease;
-    }
-
-    .toggle ul {
-        gap:4px;
-    }
-
-    .internal-navbar .menu ul li.active a {
-         color: var(--black) !important;
-    }
-
 
     /* --- south-korea-booklet.html --- */
 
@@ -2114,6 +2104,10 @@
             top: calc(29vh + 20px);
             left: calc(50% + 30px);
         }
+
+        .flipbook-wrapper {
+            gap: 340px; 
+        }
     }
 
     @media (min-width: 670px) and (max-width: 720px) {
@@ -2131,6 +2125,10 @@
         .main-work-item .flipbook-south-korea{
             margin-top:35vh;
         }  
+
+        .flipbook-wrapper {
+            gap: 320px; 
+        }
     }
 
 
@@ -2148,6 +2146,10 @@
 
         .main-work-item .flipbook-south-korea{
             margin-top:36vh;
+        }
+
+        .flipbook-wrapper {
+            gap: 300px; 
         }
     }
 
@@ -2178,6 +2180,11 @@
 
     .main-work-item .work-img{
         margin-top:60px;
+    }
+
+    /* --- faded-ashes.html --- */
+    .faded-ashes .custom-grid .h-line{
+        top: 300px !important;
     }
 
     /* --- body-vs-mind.html --- */
@@ -3189,11 +3196,23 @@
          color: var(--black) !important;
     }
 
+    /* --- south-korea-booklet.html --- */
+
+    .flipbook-wrapper {
+            gap: 340px; 
+    }
+
+    
     /* --- body-vs-mind.html --- */
 
     .body-vs-mind{
         padding:120px 60px;
     }
+
+
+    /* --- faded-ashes.html --- */
+
+
 
     @media (max-width: 991.98px) and (orientation: landscape) {
 
@@ -3204,14 +3223,6 @@
     .mobile-book-content .book {
         height: 80vh !important;
         width: auto !important;
-    }
-
-    .mobile-book-overlay {
-        align-items: center;
-    }
-
-    .mobile-book-content {
-        overflow: hidden;
     }
 
     .mobile-book-overlay {
@@ -3239,8 +3250,7 @@
         width: auto !important;
         position: absolute !important;
         left: 50% !important;
-        transform: translateX(-100%) !important;
-       
+        transform: translateX(-100%) !important; 
     }
 
     .mobile-book-content .book.at-beginning {

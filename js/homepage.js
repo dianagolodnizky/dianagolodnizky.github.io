@@ -1129,20 +1129,19 @@ function animateWorkItem() {
                                 x: 0, 
                                 duration: 1,
                                 ease: "power2.out" 
-                            }, "-=0.3"); 
+                            }, "-=0.1"); 
 
                             if (!flipbook) {
                                 gsap.to(".plugit img, .work-img, .flipbook-south-korea, .safe-driving-rules video", {
                                     opacity: 1, 
-                                    duration: 1.2, 
+                                    duration: 0.8, 
                                     ease: "linear",
-                                    delay: 0.5,
+                                    delay: 0.3,
                                     onComplete: () => {
                                         gsap.to(".plugit a.btn-hover-effect, .faded-ashes a.btn-hover-effect, .blockmates a.btn-hover-effect", {
                                             opacity: 1, 
-                                            duration: 1.2, 
+                                            duration: 0.2, 
                                             ease: "linear",
-                                            delay: 0.1
                                         });
                                     }
                                 });
