@@ -1363,7 +1363,6 @@ if (prevBtn && nextBtn && book) {
     }
 
     
-// MOBILE FULLSCREEN FLIPBOOK
 if (window.innerWidth <= 991.98) {
     const mobileOverlay = document.querySelector('#mobile-book-overlay');
     const mobileContent = document.querySelector('.mobile-book-content');
@@ -1371,36 +1370,18 @@ if (window.innerWidth <= 991.98) {
     const flipbook = document.querySelector('.main-work-item .flipbook-south-korea');
 
     if (mobileOverlay && flipbook) {
-        
-        [prevBtn, nextBtn].forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (mobileOverlay.style.display !== 'flex') {
-                    mobileContent.appendChild(flipbook);
-                    mobileOverlay.style.display = 'flex';
-                    document.body.classList.add('no-scroll');
 
-                    const isPortrait = window.matchMedia('(orientation: portrait)').matches;
-                    if (isPortrait) {
-                        const book = document.querySelector('#book');
-                        if (book) {
-                            book.style.width = '100vw';
-                            book.style.height = 'auto';
-                        }
-                        mobileContent.style.overflow = 'hidden';
-                        mobileOverlay.style.overflow = 'hidden';
-                        flipbook.style.overflow = 'hidden';
-                        flipbook.style.width = '100%';
-                    }
-
-                    anime({
-                        targets: '#mobile-book-overlay',
-                        opacity: [0, 1],
-                        duration: 400,
-                        easing: 'easeOutQuad'
-                    });
-                }
+        const openMobileOverlay = () => {
+            mobileContent.appendChild(flipbook);
+            mobileOverlay.style.display = 'flex';
+            document.body.classList.add('no-scroll');
+            anime({
+                targets: '#mobile-book-overlay',
+                opacity: [0, 1],
+                duration: 400,
+                easing: 'easeOutQuad'
             });
-        });
+        };
 
         const closeMobileOverlay = () => {
             anime({
@@ -1411,10 +1392,26 @@ if (window.innerWidth <= 991.98) {
                 complete: () => {
                     mobileOverlay.style.display = 'none';
                     document.body.classList.remove('no-scroll');
-                    document.querySelector('.main-work-item').appendChild(flipbook);
+                    const mainWorkItem = document.querySelector('.main-work-item');
+                    if (mainWorkItem) mainWorkItem.appendChild(flipbook);
                 }
             });
         };
+
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                const isLandscape = window.matchMedia('(orientation: landscape)').matches;
+                if (isLandscape && window.innerWidth <= 991.98) {
+                    if (mobileOverlay.style.display !== 'flex') {
+                        openMobileOverlay();
+                    }
+                } else {
+                    if (mobileOverlay.style.display === 'flex') {
+                        closeMobileOverlay();
+                    }
+                }
+            }, 300); 
+        });
 
         if (closeMobileBook) {
             closeMobileBook.addEventListener('click', closeMobileOverlay);

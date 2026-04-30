@@ -282,6 +282,7 @@ body.menu-open {
 
 
 
+
 /* =========== HEADER ===========*/
 
 header{
@@ -1673,18 +1674,16 @@ body.no-scroll {
 }
 
 .hint-wrapper {
-    position: fixed; 
-    top: 20px;
-    left: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 20px; 
     z-index: 10003;
+    margin-top:60px;
 }
 
 .rotate-hint {
-    color: var(--white);
+    color: var(--black);
     font-size: 1rem;
     font-weight: 300;
     opacity: 0.8;
@@ -1694,7 +1693,7 @@ body.no-scroll {
 }
 
 .hint-wrapper img{
-    width:30px;
+    width:23px;
     display: inline-block;
 }
 
@@ -1711,6 +1710,7 @@ body.no-scroll {
 .main-work-item .custom-grid .plugit-line{
     top: 34%; 
 }
+
 
 /* ---body-vs-mind --- */
 .body-vs-mind{

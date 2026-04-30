@@ -37,6 +37,7 @@
     .main-navbar{
         height: 70px;
         overflow: visible !important;
+        padding-right:30px;
     }
 
     .main-navbar .container{
@@ -56,13 +57,19 @@
     }
 
     .mobile-nav-trigger {
-        position: fixed;
-        top: 15px;
-        right: 20px;
+        position: fixed; 
+        top: 18px; 
+        right: 15px !important; 
+        left: auto !important; 
+        transform: none !important; 
+        margin: 0 !important;
         z-index: 10002;
-        width: 40px;
-        height: 40px;
-        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 37px;
+        height: 37px;
+        cursor: pointer;
     }
     
     body.preloader-active .mobile-nav-trigger {
@@ -636,7 +643,7 @@
         }
 
         .main-work-item .flipbook-south-korea{
-            margin-top:27vh;
+            margin-top:22vh;
         }
 
         .main-work-item .custom-grid .h-line {
@@ -661,7 +668,7 @@
         }
 
         .main-work-item .flipbook-south-korea{
-            margin-top:27vh;
+            margin-top:20vh;
         }
 
         .main-work-item .custom-grid .h-line {
@@ -686,7 +693,7 @@
         }
 
         .main-work-item .flipbook-south-korea{
-            margin-top:23vh;
+            margin-top:19vh;
         }
 
         .main-work-item .custom-grid .h-line {
@@ -711,7 +718,7 @@
         }
 
         .main-work-item .flipbook-south-korea{
-            margin-top:25vh;
+            margin-top:18vh;
         }
 
         .main-work-item .custom-grid .h-line {
@@ -736,11 +743,11 @@
         }
 
         .main-work-item .flipbook-south-korea{
-            margin-top:22vh;
+            margin-top:17vh;
         }
 
         .main-work-item .custom-grid .h-line {
-            top: 380px !important; 
+            top: 400px !important; 
         }
 
         .main-work-item .book{
@@ -761,11 +768,11 @@
         }
 
         .main-work-item .flipbook-south-korea{
-            margin-top:22vh;
+            margin-top:16vh;
         }
 
         .main-work-item .custom-grid .h-line {
-            top: 440px !important; 
+            top: 460px !important; 
         }
 
         .main-work-item .book{
@@ -787,7 +794,7 @@
 
     /* --- plugit-app.html --- */
     .plugit{
-        height:850px;
+        height:auto;
     }
     
     .main-work-item .custom-grid .plugit-line{
@@ -1579,11 +1586,19 @@
     }
 
     .mobile-nav-trigger {
-        position: fixed;
-        top: 32px;
-        right: 20px;
+        position: fixed; 
+        top: 18px; 
+        right: 15px !important; 
+        left: auto !important; 
+        transform: none !important; 
+        margin: 0 !important;
         z-index: 10002;
-        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        cursor: pointer;
     }
 
     body.preloader-active .mobile-nav-trigger {
@@ -2109,7 +2124,7 @@
     /* --- plugit-app.html --- */
 
     .plugit{
-        height:900px;
+        height:auto;
     }
 
     .main-work-item .work-img{
@@ -2693,13 +2708,19 @@
     }
 
     .mobile-nav-trigger {
-        position: fixed;
-        top: 30px;
-        right: 20px;
+        position: fixed; 
+        top: 20px; 
+        right: 15px !important; 
+        left: auto !important; 
+        transform: none !important; 
+        margin: 0 !important;
         z-index: 10002;
-        width: 40px;
-        height: 40px;
-        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
     }
 
     .mobile-nav-trigger .close-icon {
@@ -3198,7 +3219,6 @@
     .mobile-book-overlay .close-overlay-btn .text{
         font-size:1.2rem;
     }
-
 }
 
 
