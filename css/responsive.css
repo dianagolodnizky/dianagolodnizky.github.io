@@ -3106,8 +3106,142 @@
         padding:120px 60px;
     }
 
+    @media (max-width: 991.98px) and (orientation: landscape) {
+
+    .main-work-item .flipbook-south-korea{
+        margin-top:10vh;
+    }
+
+    .mobile-book-content .book {
+        height: 80vh !important;
+        width: auto !important;
+    }
+
+    .mobile-book-overlay {
+        align-items: center;
+    }
+
+    .mobile-book-content {
+        overflow: hidden;
+    }
+
+    .mobile-book-overlay {
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .mobile-book-content {
+        height: 100vh !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .mobile-book-content .flipbook-south-korea {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile-book-content .book {
+        height: 80vh !important;
+        width: auto !important;
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-100%) !important;
+       
+    }
+
+    .mobile-book-content .book.at-beginning {
+        transform: translateX(-50%) !important; 
+    }
+
+    .mobile-book-content .book.at-end {
+        transform: translateX(-150%) !important; 
+    }
+
+    .rotate-hint{
+        font-size: 0.8rem;
+    }
+    
+    .hint-wrapper img{
+        width:22px;
+    }
+
+    .south-korea .mobile-book-content #prev-btn {
+        top: 50% !important;
+        left: calc(50% - 37vw) !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .south-korea .mobile-book-content #next-btn {
+        top: 50% !important;
+        left: calc(50% + 32vw) !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .south-korea .mobile-book-content.single-page #prev-btn {
+        left: calc(50% - 23vw) !important;
+    }
+
+    .south-korea .mobile-book-content.single-page #next-btn {
+        left: calc(50% + 19vw) !important;
+    }
+
+    .mobile-book-overlay .close-overlay-btn{
+        width:30px;
+        height:30px;
+    }
+
+    .mobile-book-overlay .close-overlay-btn .text{
+        font-size:1.2rem;
+    }
+
+}
 
 
+@media (max-width: 991.98px) and (orientation: portrait) {
+    .mobile-book-overlay {
+        overflow: hidden !important;
+    }
+
+    .mobile-book-content {
+        height: 100vh !important;
+        width: 100vw !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden !important;
+    }
+
+    .mobile-book-content .flipbook-south-korea {
+        width: 100%;
+        height: auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .mobile-book-content .book {
+        height: 55vh !important;
+        width: auto !important;
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-100%) !important;
+    }
+
+    .mobile-book-content .book.at-beginning {
+        transform: translateX(-50%) !important;
+    }
+
+    .mobile-book-content .book.at-end {
+        transform: translateX(-150%) !important;
+    }
+}
     /* --- Section4 --- */
 
     .section4{

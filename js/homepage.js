@@ -614,6 +614,7 @@ window.addEventListener('preloaderDone', function() {
         }
     }, 500);
 
+
     var tlHeader = anime.timeline();
     tlHeader
     .add({
@@ -1361,7 +1362,8 @@ if (prevBtn && nextBtn && book) {
         }
     }
 
-    // MOBILE FULLSCREEN FLIPBOOK
+    
+// MOBILE FULLSCREEN FLIPBOOK
 if (window.innerWidth <= 991.98) {
     const mobileOverlay = document.querySelector('#mobile-book-overlay');
     const mobileContent = document.querySelector('.mobile-book-content');
@@ -1376,6 +1378,19 @@ if (window.innerWidth <= 991.98) {
                     mobileContent.appendChild(flipbook);
                     mobileOverlay.style.display = 'flex';
                     document.body.classList.add('no-scroll');
+
+                    const isPortrait = window.matchMedia('(orientation: portrait)').matches;
+                    if (isPortrait) {
+                        const book = document.querySelector('#book');
+                        if (book) {
+                            book.style.width = '100vw';
+                            book.style.height = 'auto';
+                        }
+                        mobileContent.style.overflow = 'hidden';
+                        mobileOverlay.style.overflow = 'hidden';
+                        flipbook.style.overflow = 'hidden';
+                        flipbook.style.width = '100%';
+                    }
 
                     anime({
                         targets: '#mobile-book-overlay',
@@ -1408,10 +1423,40 @@ if (window.innerWidth <= 991.98) {
         mobileOverlay.querySelector('.mobile-book-overlay-bg').addEventListener('click', closeMobileOverlay);
     }
 }
-    
+
 function updateButtons() {
     nextBtn.style.visibility = currentLocation <= 1 ? 'hidden' : 'visible';
     prevBtn.style.visibility = currentLocation >= maxLocation ? 'hidden' : 'visible';
+
+    // landscape mobile
+    if (window.innerWidth <= 991.98 && window.matchMedia('(orientation: landscape)').matches) {
+        const isSinglePage = currentLocation === 1 || currentLocation >= maxLocation;
+        const mobileContent = document.querySelector('.mobile-book-content');
+        if (mobileContent) mobileContent.classList.toggle('single-page', isSinglePage);
+    }
+
+    // SM screens
+    if (window.innerWidth <= 767.98 && window.innerWidth > 670) {
+        if (currentLocation === 1 || currentLocation >= maxLocation) {
+            prevBtn.style.top = '50%';
+            prevBtn.style.left = 'calc(50% - 17.5vw - 100px)';
+            nextBtn.style.top = '50%';
+            nextBtn.style.left = 'calc(50% + 17.5vw + 100px)';
+        } else {
+            prevBtn.style.top = 'calc(30vh + 20px)';
+            prevBtn.style.left = 'calc(50% - 30px)';
+            nextBtn.style.top = 'calc(30vh + 20px)';
+            nextBtn.style.left = 'calc(50% + 30px)';
+        }
+    }
+
+    if (currentLocation >= maxLocation) {
+        book.style.boxShadow = 'none';
+        book.style.webkitBoxShadow = 'none';
+    } else {
+        book.style.boxShadow = '';
+        book.style.webkitBoxShadow = '';
+    }
 }
 
 function goNextPage() {
@@ -1434,7 +1479,6 @@ function goNextPage() {
         }
         currentLocation++;
         updateButtons();
-        
     }
 }
 
@@ -1502,35 +1546,6 @@ updateButtons();
         bookOverlay.querySelector(".overlay-background").addEventListener("click", closeBookOverlay);
     }
 
-    function updateButtons() {
-    nextBtn.style.visibility = currentLocation <= 1 ? 'hidden' : 'visible';
-    prevBtn.style.visibility = currentLocation >= maxLocation ? 'hidden' : 'visible';
-
-    if (window.innerWidth <= 767.98 && window.innerWidth > 670) {
-        if (currentLocation === 1 || currentLocation >= maxLocation) {
-            prevBtn.style.top = '50%';
-            prevBtn.style.left = 'calc(50% - 17.5vw - 100px)';
-            nextBtn.style.top = '50%';
-            nextBtn.style.left = 'calc(50% + 17.5vw + 100px)';
-        } else {
-            prevBtn.style.top = 'calc(30vh + 20px)';
-            prevBtn.style.left = 'calc(50% - 30px)';
-            nextBtn.style.top = 'calc(30vh + 20px)';
-            nextBtn.style.left = 'calc(50% + 30px)';
-        }
-    }
-
-    if (currentLocation >= maxLocation) {
-        book.style.boxShadow = 'none';
-        book.style.webkitBoxShadow = 'none';
-    } else {
-        book.style.boxShadow = '';
-        book.style.webkitBoxShadow = '';
-    }
-
-}
-
-
     function updateButtonsPosition() {
         const bookEl = document.querySelector('.main-work-item .book');
         if (!bookEl) return;
@@ -1549,8 +1564,7 @@ updateButtons();
         } else {
             document.querySelector('.book').style.boxShadow = '0 0 20px rgba(0,0,0,0.2)'; 
         }
-            }
-
+    }
 
 }
 
