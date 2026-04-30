@@ -166,6 +166,7 @@ function startLogoAnimation() {
             document.body.classList.remove('preloader-active');
             const navbar = document.querySelector('.main-navbar');
             if (navbar) navbar.classList.add('is-visible');
+            window.dispatchEvent(new Event('preloaderDone'));
         }
         
     });
@@ -181,6 +182,7 @@ function startLogoAnimation() {
                 document.body.classList.remove('preloader-active');
                 const navbar = document.querySelector('.main-navbar');
                 if (navbar) navbar.classList.add('is-visible');
+                window.dispatchEvent(new Event('preloaderDone'));
             }
         });
     }
@@ -196,6 +198,7 @@ function startLogoAnimation() {
     const navbar = document.querySelector('.main-navbar');
     if (!document.getElementById('preloader') && navbar) {
         navbar.classList.add('is-visible');
+        window.dispatchEvent(new Event('preloaderDone'));
     }
 
 })();
@@ -597,9 +600,22 @@ $(document).ready(function() {
 
 
 // HERO SECTION ENTRANCE ANIMATION
-    var tlHeader = anime.timeline();
-    tlHeader 
+window.addEventListener('preloaderDone', function() {
+    const video = document.querySelector('.header-video');
+     if (video) {
+        video.pause();
+        video.currentTime = 0;
+    }
 
+    setTimeout(() => {
+        if (video) {
+            video.style.opacity = '1';
+            video.play();
+        }
+    }, 500);
+
+    var tlHeader = anime.timeline();
+    tlHeader
     .add({
         targets: '.main-navbar .brand',
         translateX: [-60, 0],
@@ -614,9 +630,7 @@ $(document).ready(function() {
         delay: anime.stagger(130, { from: 'last' }),
         duration: 1500,
         easing: 'easeOutQuint'
-        
     }, '-=600')
-
     .add({
         targets: '.mobile-nav-trigger',
         translateX: [60, 0],
@@ -624,7 +638,6 @@ $(document).ready(function() {
         duration: 500,
         easing: 'easeOutQuint'
     }, 400)
-    
     .add({
         targets: '.heading h1 span',
         translateX: [100, 0], 
@@ -633,7 +646,7 @@ $(document).ready(function() {
         easing: 'easeInOutQuint'
     })
     .add({
-         targets: '.heading p.p1',
+        targets: '.heading p.p1',
         backgroundColor: window.innerWidth <= 575.98 
             ? ['rgba(137, 123, 150, 0)', 'rgba(137, 123, 150, 0)']
             : ['rgba(137, 123, 150, 0)', 'rgba(137, 123, 150, 1)'],
@@ -650,13 +663,13 @@ $(document).ready(function() {
         delay: anime.stagger(50),
         easing: 'linear'
     }, '-=400') 
- 
     .add({
         targets: '.heading p.p2 span',
         opacity: [0, 1],
         delay: anime.stagger(50),
         easing: 'easeInOutQuint'
     }, '-=700');
+});
 
 
 
