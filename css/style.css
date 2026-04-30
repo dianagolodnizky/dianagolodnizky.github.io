@@ -1517,7 +1517,7 @@ body.no-scroll {
     background: url('../images/section3-background.png');
     background-size: cover;
     background-repeat: no-repeat;
-    height:100vh;
+    height:auto;
 }
 
 .main-work-item{
