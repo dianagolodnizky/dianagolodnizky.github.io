@@ -785,7 +785,6 @@
     }
 
 
-
     /* --- plugit-app.html --- */
     .plugit{
         height:850px;
@@ -796,7 +795,7 @@
     }
 
     .main-work-item .work-img{
-        margin-top:50px;
+        margin-top:70px;
     }
 
 
@@ -836,6 +835,15 @@
         }
     }
 
+    /* --- faded-ashes.html --- */
+
+    .faded-ashes .custom-grid .h-line {
+        top: 330px !important; 
+    }
+
+    .faded-ashes .work-img{
+        margin-top:80px;
+    }
 
     /* --- safe-driving-rules.html --- */
 
@@ -2117,6 +2125,7 @@
     .body-vs-mind .work-img{
         width:100%;
     }
+
   
     /* --- blockmates.html --- */
 

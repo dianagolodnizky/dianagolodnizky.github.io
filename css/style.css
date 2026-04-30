@@ -1725,6 +1725,11 @@ body.no-scroll {
     top: 290px ; 
 }
 
+/* --- faded-ashes.html --- */
+.faded-ashes a.btn-hover-effect {
+    opacity: 0;
+}
+
 /* --- safe-driving-rules --- */
 
 .safe-driving-rules video{
