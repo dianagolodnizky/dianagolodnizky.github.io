@@ -1333,11 +1333,45 @@ if (s3Target) section3Observer.observe(s3Target);
 
 
 $('.internal-navbar a').on('click', function(e) {
-        if ($(this).attr('href').indexOf('.html') !== -1) {
-            window.location.href = $(this).attr('href');
-        }
-    });
+    if ($(this).attr('href').indexOf('.html') !== -1) {
+        e.preventDefault();
+        
+        const targetUrl = $(this).attr('href');
+        const navMenu = document.querySelector(".internal-navbar ul");
+        const mobileMenuElements = document.querySelectorAll(".internal-navbar ul li span");
+        
+        gsap.to(['main', '.content-wrapper', 'footer'], {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.inOut"
+        });
+
+        anime({
+            targets: mobileMenuElements,
+            opacity: [1, 0],
+            translateX: [0, 60],
+            filter: ["blur(0px)", "blur(10px)"],
+            duration: 400,
+            delay: anime.stagger(50, {direction: 'reverse'}), 
+            easing: 'easeInQuint',
+            complete: () => {
+                const tl = gsap.timeline({
+                    onComplete: () => {
+                        window.location.href = targetUrl;
+                    }
+                });
+
+                tl.to(navMenu, { duration: 0.6, "--panel-right-1": "100%", ease: "power1.inOut" }, 0)
+                  .to(navMenu, { duration: 0.6, "--panel-right-2": "100%", ease: "power1.inOut" }, 0.1)
+                  .to(navMenu, { duration: 0.6, "--panel-right-3": "100%", ease: "power1.inOut" }, 0.2)
+                  .to(navMenu, { duration: 0.6, "--panel-right-4": "100%", ease: "power1.inOut" }, 0.3);
+            }
+        });
+    }
+});
+
     
+
 
 // SOUTH KOREA BOOKLET
 const section3Element = document.querySelector('.section3, .main-work-item');
