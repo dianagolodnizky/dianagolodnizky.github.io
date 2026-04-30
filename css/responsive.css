@@ -603,9 +603,14 @@
 
     /* --- south-korea-booklet.html --- */
 
+    .body-work-item .south-korea{
+       min-height: 100vh; 
+       padding:120px 30px;
+    }
+
     .main-work-item{
         padding:120px 30px;
-        height:100%;
+        min-height: 100vh;
     }
 
     .main-work-item .task-description{
@@ -793,8 +798,10 @@
 
 
     /* --- plugit-app.html --- */
-    .plugit{
-        height:auto;
+
+    .body-work-item .plugit{
+       min-height: 100vh; 
+       padding:120px 30px;
     }
     
     .main-work-item .custom-grid .plugit-line{
@@ -808,10 +815,11 @@
 
     /* --- body-vs-mind.html --- */
 
-    .body-vs-mind{
-        padding:120px 30px;
-        height:auto;
+    .body-work-item .body-vs-mind{
+       min-height: 100vh; 
+       padding:120px 30px;
     }
+
 
     .body-vs-mind .custom-grid .h-line {
         top: 290px !important; 
@@ -844,6 +852,11 @@
 
     /* --- faded-ashes.html --- */
 
+    .body-work-item .faded-ashes{
+       min-height: 100vh; 
+       padding:120px 30px;
+    }
+
     .faded-ashes .custom-grid .h-line {
         top: 330px !important; 
     }
@@ -855,7 +868,7 @@
     /* --- safe-driving-rules.html --- */
 
     .body-work-item .safe-driving-rules{
-       height:auto; 
+       min-height: 100vh; 
        padding:120px 30px;
     }
     
