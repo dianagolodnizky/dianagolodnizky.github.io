@@ -1312,7 +1312,12 @@ const s3Target = document.querySelector('.section3');
 if (s3Target) section3Observer.observe(s3Target);
 
 
-
+$('.internal-navbar a').on('click', function(e) {
+        // אם זה קישור לדף (ולא עוגן # בתוך הדף)
+        if ($(this).attr('href').indexOf('.html') !== -1) {
+            window.location.href = $(this).attr('href');
+        }
+    });
 
 // SOUTH KOREA BOOKLET
 const section3Element = document.querySelector('.section3, .main-work-item');

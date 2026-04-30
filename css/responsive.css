@@ -27,8 +27,6 @@
 
 
     /* --- Header --- */
-
-
     .logo{
         max-width:110px;
         margin-top:2px;
@@ -599,7 +597,25 @@
         display: block;
     }
 
-   
+    /* ---work-item internal-navbar --- */
+    .internal-navbar .menu ul li a {
+        color: var(--white) !important;
+        text-decoration: none;
+        font-family: 'League Gothic', sans-serif;
+        text-transform: uppercase;
+        margin-left: 0;
+        font-size: 2.4rem !important;
+        transition: opacity 0.3s ease;
+    }
+
+    .toggle ul {
+        gap:4px;
+    }
+
+    .internal-navbar .menu ul li.active  {
+        color: var(--black); 
+    }
+
 
     /* --- south-korea-booklet.html --- */
 

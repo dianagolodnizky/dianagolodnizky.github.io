@@ -1633,7 +1633,7 @@ body.no-scroll {
 }
 
 
-/* Mobile fullscreen flipbook */
+/* ---Mobile fullscreen flipbook --- */
 .mobile-book-overlay {
     display: none;
     position: fixed;
