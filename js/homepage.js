@@ -1337,6 +1337,7 @@ $('.internal-navbar a').on('click', function(e) {
             window.location.href = $(this).attr('href');
         }
     });
+    
 
 // SOUTH KOREA BOOKLET
 const section3Element = document.querySelector('.section3, .main-work-item');

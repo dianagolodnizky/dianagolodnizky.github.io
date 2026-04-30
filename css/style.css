@@ -1518,11 +1518,13 @@ body.no-scroll {
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
-    background-attachment: fixed;
+    height: auto;
 }
 
 .main-work-item{
     padding:120px 60px;
+    min-height: 100vh;
+    height: auto;
 }
 
 .main-work-item h2{
@@ -1589,8 +1591,10 @@ body.no-scroll {
 
 
 /* --- south-korea --- */
-.south-korea{
-    height:auto;
+.body-work-item .south-korea{
+    min-height: 100vh;
+    height: 100%;
+    padding:120px 30px;
 }
 
 .main-work-item .flipbook-south-korea{
@@ -1598,6 +1602,7 @@ body.no-scroll {
     overflow: visible;
     z-index: 1;
     opacity: 0;
+    margin-bottom:190px;
  
 }
 
