@@ -2022,6 +2022,26 @@
         display: block;
     }
 
+    
+    /* ---work-item internal-navbar --- */
+    .internal-navbar .menu ul li a {
+        color: var(--white) !important;
+        text-decoration: none;
+        font-family: 'League Gothic', sans-serif;
+        text-transform: uppercase;
+        margin-left: 0;
+        font-size: 2.5rem !important;
+        transition: opacity 0.3s ease;
+    }
+
+    .toggle ul {
+        gap:4px;
+    }
+
+    .internal-navbar .menu ul li.active a {
+         color: var(--black) !important;
+    }
+
 
     /* --- south-korea-booklet.html --- */
 
@@ -3148,6 +3168,25 @@
         width: 100%;
         height: auto;
         display: block;
+    }
+
+    /* ---work-item internal-navbar --- */
+    .internal-navbar .menu ul li a {
+        color: var(--white) !important;
+        text-decoration: none;
+        font-family: 'League Gothic', sans-serif;
+        text-transform: uppercase;
+        margin-left: 0;
+        font-size: 2.7rem !important;
+        transition: opacity 0.3s ease;
+    }
+
+    .toggle ul {
+        gap:3px;
+    }
+
+    .internal-navbar .menu ul li.active a {
+         color: var(--black) !important;
     }
 
     /* --- body-vs-mind.html --- */

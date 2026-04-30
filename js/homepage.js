@@ -18,7 +18,7 @@
     const fill = document.getElementById('preloader-line-fill');
     const percentEl = document.getElementById('preloader-percent');
     const logoWrap = document.querySelector('.preloader-logo-wrap');;
-    
+
     
     let progress = 0;
     let targetProgress = 0;
@@ -363,7 +363,7 @@ if (trigger && navMenu) {
                 if (!isMenuOpen) {
                     navMenu.classList.remove("open");
                     navbar.classList.remove('menu-is-open');
-                    body.classList.remove("menu-open"); // ← עבר לכאן
+                    body.classList.remove("menu-open"); 
                 }
             }
         });
@@ -403,7 +403,7 @@ mobileMenuElements.forEach(item => {
                 const targetId = link.getAttribute('href');
                 body.classList.remove("menu-open");
                 trigger.click();
-                navContents.classList.remove("toggle"); // מחזיר להמבורגר
+                navContents.classList.remove("toggle"); 
                 setTimeout(() => {
                     scrollToSection(targetId);
                 }, 950);
@@ -416,7 +416,7 @@ mobileMenuElements.forEach(item => {
 // SMOOTH SCROLL FOR NAVBAR LINKS
 document.querySelectorAll('.main-navbar ul li a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
-        if (isMenuOpen) return; // המובייל מטפל בזה בנפרד
+        if (isMenuOpen) return;
         
         const targetId = this.getAttribute('href');
         if (targetId === '#') {
@@ -1090,6 +1090,7 @@ if (window.innerWidth <= 575.98) {
         });
     }
 
+
 function animateWorkItem() {
     const flipbook = document.querySelector(".main-work-item .flipbook-south-korea");
 
@@ -1113,22 +1114,46 @@ function animateWorkItem() {
                         duration: 1,
                         ease: "linear",
                         onComplete: () => {
+                            gsap.set(".hint-wrapper", { display: "flex", opacity: 1 });
+
+                            const hintTl = gsap.timeline();
+                            
+                           
+                            hintTl.to(".hint-wrapper img", {
+                                opacity: 1,
+                                duration: 0.6,
+                                ease: "power2.out"
+                            })
+                            .to(".hint-wrapper p", {
+                                opacity: 1,
+                                x: 0, 
+                                duration: 1,
+                                ease: "power2.out" 
+                            }, "-=0.3"); 
+
                             if (!flipbook) {
                                 gsap.to(".plugit img, .work-img, .flipbook-south-korea, .safe-driving-rules video", {
-                                    opacity: 1, duration: 1.2, ease: "linear",
-                                   
+                                    opacity: 1, 
+                                    duration: 1.2, 
+                                    ease: "linear",
+                                    delay: 0.5,
                                     onComplete: () => {
                                         gsap.to(".plugit a.btn-hover-effect, .faded-ashes a.btn-hover-effect, .blockmates a.btn-hover-effect", {
-                                            opacity: 1, duration: 1.2, ease: "linear",
+                                            opacity: 1, 
+                                            duration: 1.2, 
+                                            ease: "linear",
                                             delay: 0.1
                                         });
                                     }
                                 });
                             } else {
-    gsap.to(".main-work-item .flipbook-south-korea", { 
-        opacity: 1, duration: 1.2, ease: "power2.out" 
-    });
-}
+                                gsap.to(".main-work-item .flipbook-south-korea", { 
+                                    opacity: 1, 
+                                    duration: 1.2, 
+                                    ease: "power2.out",
+                                    delay: 0.8 
+                                });
+                            }
                         }
                     });
                 }
@@ -1136,6 +1161,8 @@ function animateWorkItem() {
         }
     });
 }
+
+
 
     
 // PROJECT CARD ENTRANCE
@@ -1306,7 +1333,6 @@ if (s3Target) section3Observer.observe(s3Target);
 
 
 $('.internal-navbar a').on('click', function(e) {
-        // אם זה קישור לדף (ולא עוגן # בתוך הדף)
         if ($(this).attr('href').indexOf('.html') !== -1) {
             window.location.href = $(this).attr('href');
         }
@@ -1560,9 +1586,7 @@ updateButtons();
             document.querySelector('.book').style.boxShadow = '0 0 20px rgba(0,0,0,0.2)'; 
         }
     }
-
 }
-
 
 
 

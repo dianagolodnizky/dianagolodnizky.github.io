@@ -1597,6 +1597,7 @@ body.no-scroll {
     margin-top:35vh;
     overflow: visible;
     z-index: 1;
+    opacity: 0;
  
 }
 
@@ -1681,6 +1682,8 @@ body.no-scroll {
     gap: 20px; 
     z-index: 10003;
     margin-top:60px;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .rotate-hint {
@@ -1693,9 +1696,16 @@ body.no-scroll {
     line-height: 1.45;   
 }
 
+.hint-wrapper p {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
 .hint-wrapper img{
     width:23px;
     display: inline-block;
+    opacity: 0;
+    transform: translateY(10px);
 }
 
 .mobile-book-overlay .close-overlay-btn{
