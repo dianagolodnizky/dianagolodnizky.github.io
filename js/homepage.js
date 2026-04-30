@@ -3,19 +3,9 @@
     const preloader = document.getElementById('preloader');
     if (!preloader) return;
 
-    const pagesToDisable = [
-        'south-korea-booklet.html',
-        'safe-driving-rules.html',
-        'plugit-app.html',
-        'faded-ashes.html',
-        'body-vs-mind.html',
-        'blockmates.html'
-    ];
+    const hasSeenPreloader = sessionStorage.getItem('preloaderExecuted');
 
-    const currentPage = window.location.pathname.split('/').pop();
-    const shouldDisable = pagesToDisable.includes(currentPage);
-
-    if (shouldDisable) {
+    if (hasSeenPreloader) {
         preloader.style.display = 'none';
         document.body.classList.remove('preloader-active');
         const navbar = document.querySelector('.main-navbar');
@@ -23,9 +13,12 @@
         return; 
     }
 
+    sessionStorage.setItem('preloaderExecuted', 'true');
+
     const fill = document.getElementById('preloader-line-fill');
     const percentEl = document.getElementById('preloader-percent');
-    const logoWrap = document.querySelector('.preloader-logo-wrap');
+    const logoWrap = document.querySelector('.preloader-logo-wrap');;
+    
     
     let progress = 0;
     let targetProgress = 0;

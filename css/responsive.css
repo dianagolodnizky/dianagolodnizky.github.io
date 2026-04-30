@@ -612,8 +612,8 @@
         gap:4px;
     }
 
-    .internal-navbar .menu ul li.active  {
-        color: var(--black); 
+    .internal-navbar .menu ul li.active a {
+         color: var(--black) !important;
     }
 
 
