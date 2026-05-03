@@ -747,6 +747,10 @@ header .heading{
     opacity: 0;
 }
 
+.work-item1 .xs-br{
+    display: none;
+}
+
 .section3 .card {
     background: url('../images/purple-background.png');
     position: relative;

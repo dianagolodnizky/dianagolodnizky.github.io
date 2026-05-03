@@ -485,10 +485,14 @@
         padding-left:10px;
         margin-top:10px;
         font-family: "Montserrat", sans-serif;
-        font-size:0.86rem;
+        font-size:var(--body-small);
         font-weight: 300;
         text-transform: lowercase;
         line-height:18px;
+    }
+
+    .work-item1 .xs-br{
+        display: inline;
     }
 
     .section3 .content{
@@ -550,19 +554,16 @@
 
     .work-item3 h6{
         float:right;
-        width:45%;
     }
 
     .work-item4 h6{
         float:left;
-        width:40%;
         line-height:17px;
     }
 
     .work-item5 h6{
         float:right;
         line-height:17px;
-        width:60%;
     }
 
     .work-item6 h6{
@@ -1185,8 +1186,8 @@
     }
 
     .skills-list li{
-       font-size:var(--body-small);
-       width:200px;
+       font-size:var(--body-regular);
+       width:250px;
     }
 
 
