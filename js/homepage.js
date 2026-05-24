@@ -1883,6 +1883,205 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+// =========== CASE-STUDY-PAGES ===========
+
+// SIDE MENU
+document.addEventListener('DOMContentLoaded', () => {
+    const csSideMenu = document.querySelector('#cs-side-menu');
+    const menuTrigger = document.querySelector('#menu-trigger');
+    const triggerImg = menuTrigger.querySelector('img');
+    const sideLinks = document.querySelectorAll('.side-link');
+    const overlay = document.querySelector('#side-menu-overlay');
+    let isMenuOpen = false;
+    let lastOpenTime = 0;
+
+    function openMenu() {
+        anime({
+            targets: csSideMenu,
+            right: 0,
+            duration: 700,
+            easing: 'easeOutQuart'
+        });
+        overlay.classList.add('active');
+        isMenuOpen = true;
+        lastOpenTime = Date.now();
+    }
+
+    function closeMenu() {
+        const menuWidth = csSideMenu.offsetWidth;
+        anime({
+            targets: csSideMenu,
+            right: -menuWidth,
+            duration: 600,
+            easing: 'easeInQuad'
+        });
+        anime({
+            targets: triggerImg,
+            rotate: 0,
+            duration: 500
+        });
+        overlay.classList.remove('active');
+        isMenuOpen = false;
+    }
+
+    function toggleMenu() {
+        if (!isMenuOpen) openMenu();
+        else closeMenu();
+    }
+
+    // Desktop: hover opens/closes
+    menuTrigger.addEventListener('mouseenter', toggleMenu);
+
+    // Click on trigger closes (debounced to avoid double-fire on touch)
+    menuTrigger.addEventListener('click', () => {
+        if (isMenuOpen && Date.now() - lastOpenTime > 150) closeMenu();
+    });
+
+    // Click on overlay always closes
+    overlay.addEventListener('click', () => {
+        if (isMenuOpen) closeMenu();
+    });
+
+    sideLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                if (isMenuOpen) toggleMenu();
+
+                window.scrollTo({
+                    top: targetSection.offsetTop - 50, 
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -70% 0px', 
+        threshold: 0
+    };
+
+    const observerCallback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                sideLinks.forEach(link => link.classList.remove('active'));
+                
+                const activeId = entry.target.getAttribute('id');
+                const activeLink = document.querySelector(`.side-link[href="#${activeId}"]`);
+                
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sideLinks.forEach(link => {
+        const targetId = link.getAttribute('href');
+        if (targetId && targetId.startsWith('#')) {
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                observer.observe(targetSection);
+            }
+        }
+    });
+});
+
+
+
+// USER FLOW - LIGHTBOX
+document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.querySelector("#userflow-lightbox");
+    const closeBtn = document.querySelector("#close-userflow");
+    const enlargementIcons = document.querySelectorAll(".user-flow-container .enlargement-icon");
+    const lightboxImg = document.querySelector("#userflow-img");
+    const bgOverlay = document.querySelector(".userflow .overlay-background");
+
+    enlargementIcons.forEach(icon => {
+        icon.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const container = icon.closest(".user-flow-container");
+            const flowImg = container.querySelector(".user-flow");
+            if (lightboxImg && flowImg) lightboxImg.src = flowImg.src;
+
+            lightbox.style.display = "flex";
+            document.body.classList.add("no-scroll");
+
+            anime({
+                targets: '#userflow-lightbox',
+                opacity: [0, 1],
+                duration: 400,
+                easing: 'easeOutQuad'
+            });
+        });
+    });
+
+    const closeLightbox = () => {
+        anime({
+            targets: '#userflow-lightbox',
+            opacity: 0,
+            duration: 300,
+            easing: 'easeInQuad',
+            complete: () => {
+                lightbox.style.display = "none";
+                document.body.classList.remove("no-scroll");
+            }
+        });
+    };
+
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeLightbox);
+    }
+
+    if (bgOverlay) {
+        bgOverlay.addEventListener("click", closeLightbox);
+    }
+});
+
+
+const zoomImg = document.querySelector("#userflow-img");
+let isZoomed = false;
+
+if (zoomImg) {
+    zoomImg.addEventListener("click", (e) => {
+        isZoomed = !isZoomed;
+        
+        if (isZoomed) {
+            zoomImg.classList.add("is-zoomed");
+            applyZoomLocation(e);
+        } else {
+            zoomImg.classList.remove("is-zoomed");
+            zoomImg.style.transformOrigin = "center center";
+        }
+    });
+
+    zoomImg.addEventListener("mousemove", (e) => {
+        if (isZoomed) {
+            applyZoomLocation(e);
+        }
+    });
+
+    function applyZoomLocation(e) {
+        const { left, top, width, height } = zoomImg.getBoundingClientRect();
+        const x = ((e.clientX - left) / width) * 100;
+        const y = ((e.clientY - top) / height) * 100;
+        
+        zoomImg.style.transformOrigin = `${x}% ${y}%`;
+    }
+}
+const originalCloseLightbox = closeLightbox;
+
+
+
+
+
 
 
 
