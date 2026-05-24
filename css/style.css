@@ -2648,7 +2648,7 @@ body:not(.preloader-active) .mobile-nav-trigger {
 
 
 
-/* =========================================== CASE-STUDIES ==============================================*/
+/* =========================================== CASE-STUDIES -ken-lanefesh ==============================================*/
 
 /* =========== HEADER ===========*/
 .case-study-header{
@@ -4623,3 +4623,30 @@ body:not(.preloader-active) .mobile-nav-trigger {
     filter: invert(90%);
     transition: filter 0.3s ease; 
 }
+
+
+
+/* =========================================== CASE-STUDIES -ken-lanefesh ==============================================*/
+
+.sucrée-chic-header{
+    background-image: url('../images/sucrée-chic-header.png');
+}
+
+.sucrée-chic-header h1{
+    color: var(--dark-purple);
+}
+
+.sucrée-chic-header .btn-hover-effect{
+    background-color: var(--black);
+}
+
+.sucrée-chic-header .heading-main p{
+    width:25vw;
+    margin-top:40px;
+}
+
+.case-study-header .header-mockups {
+    top: 0px;
+    height: 100%;
+}
+
