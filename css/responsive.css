@@ -6540,7 +6540,27 @@
         font-size:1.2rem;
     }
 
+
+    /* =========== SUCRÉE CHIC PAGE ===========*/
+    .sucree-chic .case-study-section8 {
+        height: 1300px;
+    }
+
+    .sucree-chic .case-study-section8 .horizontal-line5 { top: 4%; }
+    .sucree-chic .case-study-section8 .horizontal-line4 { top: 26%; }
+    .sucree-chic .case-study-section8 .horizontal-line3 { top: 48%; }
+    .sucree-chic .case-study-section8 .horizontal-line2 { top: 70%; }
+
+    .sucree-chic .case-study-section8 .feature6 { top: 15%; }
+    .sucree-chic .case-study-section8 .feature4 { top: 37%; }
+    .sucree-chic .case-study-section8 .feature2,
+    .sucree-chic .case-study-section8 .feature7 { top: 59%; }
+    .sucree-chic .case-study-section8 .feature1,
+    .sucree-chic .case-study-section8 .feature5 { top: 81%; }
+
 }
+
+
 
 
 @media (max-width: 991.98px) and (orientation: portrait) {
@@ -10314,6 +10334,26 @@
         height: 45px;
     }
 
+
+    /* =========== SUCRÉE CHIC PAGE ===========*/
+    /* SECTION8: keep default height, spread horizontal lines wider in %
+       to create breathing room around features (no enlarged section). */
+    .sucree-chic .case-study-section8 {
+        height: 1300px;
+    }
+
+    .sucree-chic .case-study-section8 .horizontal-line5 { top: 4%; }
+    .sucree-chic .case-study-section8 .horizontal-line4 { top: 26%; }
+    .sucree-chic .case-study-section8 .horizontal-line3 { top: 48%; }
+    .sucree-chic .case-study-section8 .horizontal-line2 { top: 70%; }
+
+    .sucree-chic .case-study-section8 .feature6 { top: 15%; }
+    .sucree-chic .case-study-section8 .feature4 { top: 37%; }
+    .sucree-chic .case-study-section8 .feature2,
+    .sucree-chic .case-study-section8 .feature7 { top: 59%; }
+    .sucree-chic .case-study-section8 .feature1,
+    .sucree-chic .case-study-section8 .feature5 { top: 81%; }
+
     }
 
 
@@ -11843,6 +11883,23 @@
     }
 
 
+    /* =========== SUCRÉE CHIC PAGE ===========*/
+    .sucree-chic .case-study-section8 {
+        height: 1300px;
+    }
+
+    .sucree-chic .case-study-section8 .horizontal-line5 { top: 4%; }
+    .sucree-chic .case-study-section8 .horizontal-line4 { top: 26%; }
+    .sucree-chic .case-study-section8 .horizontal-line3 { top: 48%; }
+    .sucree-chic .case-study-section8 .horizontal-line2 { top: 70%; }
+
+    .sucree-chic .case-study-section8 .feature6 { top: 15%; }
+    .sucree-chic .case-study-section8 .feature4 { top: 37%; }
+    .sucree-chic .case-study-section8 .feature2,
+    .sucree-chic .case-study-section8 .feature7 { top: 59%; }
+    .sucree-chic .case-study-section8 .feature1,
+    .sucree-chic .case-study-section8 .feature5 { top: 81%; }
+
 }
 
 
@@ -12545,8 +12602,12 @@
         .softwares-col6 img:nth-child(3) {
             margin-top:105px;
         }
-    }   
+
+
     
+
+}
+
 @media (min-width: 1400px) and (max-width:  1500px) {
 
         .softwares-container {
@@ -12941,6 +13002,63 @@
         width:40px;
     }
 
+    .sucree-chic .case-study-section8 .horizontal-line5 { 
+        top: 4%; 
+    }
+
+    .sucree-chic .case-study-section8 .horizontal-line4 { 
+        top: 26%; 
+    }
+
+    .sucree-chic .case-study-section8 .horizontal-line3 { 
+        top: 48%; 
+    }
+
+    .sucree-chic .case-study-section8 .horizontal-line2 { 
+        top: 70%; 
+        right:17%;
+    }
+
+    .sucree-chic .case-study-section8 .vertical-line1 {
+        bottom: 20%;
+        top:70%;
+    }
+
+    .sucree-chic .case-study-section8 .vertical-line2 {
+        bottom: 10%;
+    }
+
+    .sucree-chic .case-study-section8 .vertical-line3 {
+        bottom: 17%;
+    }
+
+    .sucree-chic .case-study-section8 .vertical-line4 {
+        bottom: 22%;
+    }
+
+    .sucree-chic .case-study-section8 .vertical-line5 {
+        bottom: 45%;
+    }
+
+    .sucree-chic .case-study-section8 .feature6 { 
+        top: 15%; 
+    }
+
+    .sucree-chic .case-study-section8 .feature4 { 
+        top: 37%; 
+    }
+
+    .sucree-chic .case-study-section8 .feature2,
+    .sucree-chic .case-study-section8 .feature7 { 
+        top: 59%; 
+    }
+
+    .sucree-chic .case-study-section8 .feature1,
+    .sucree-chic .case-study-section8 .feature5 { 
+        top: 81%; 
+    }
+
+
     /* =========== SECTION9 ===========*/
     .case-study-section9 {
         padding: 120px;
@@ -13234,13 +13352,10 @@
         font-size: 1.3rem;
     }
 
-
 }
 
-
-
 /* XXXL - 3 Extra large devices*/
-@media (min-width: 1900px) { 
+@media (min-width: 1900px) {
     :root {
         --h1-size:15rem;
         --h2-size:8rem;
@@ -13257,8 +13372,19 @@
         --layout-grid-column: 120px;
     }
 
+    /* --- Navbar: remove max-width centering, use full-width with 120px side padding --- */
+    .main-navbar .container {
+        max-width: none;
+        padding-left: 120px;
+        padding-right: 120px;
+    }
+
     header {
         padding:0 120px;
+    }
+
+    p{
+        font-size:var(--body-regular);
     }
 
     header .heading{
@@ -13734,4 +13860,5 @@
 
 
 }
+
 

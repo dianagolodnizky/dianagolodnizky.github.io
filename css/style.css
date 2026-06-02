@@ -2923,6 +2923,7 @@ body:not(.preloader-active) .mobile-nav-trigger {
 
 
 
+
 /* =========== SECTION2 ===========*/
 
 .case-study-section2{
@@ -4628,6 +4629,7 @@ body:not(.preloader-active) .mobile-nav-trigger {
 
 /* =========================================== CASE-STUDIES -ken-lanefesh ==============================================*/
 
+/* =========== HEADER ===========*/
 .sucrée-chic-header{
     background-image: url('../images/sucrée-chic-header.png');
 }
@@ -4645,8 +4647,90 @@ body:not(.preloader-active) .mobile-nav-trigger {
     margin-top:40px;
 }
 
-.case-study-header .header-mockups {
+.sucrée-chic-header .header-mockups {
     top: 0px;
     height: 100%;
+}
+
+/* =========== SECTION1 ===========*/
+
+.sucree-chic .case-study-section1 {
+    min-height: 1600px;
+}
+
+.sucree-chic .case-study-section1 .right-side p {
+    width:70% !important;
+}
+
+.sucree-chic .case-study-section1 .left-side{
+    margin-top:550px !important;
+}
+
+.sucree-chic .case-study-section1 .horizontal-line1 {
+    top: 39.5%;
+}
+
+.sucree-chic .case-study-section1 .horizontal-line2 {
+    top: 66%;
+}
+
+.sucree-chic .case-study-section1 .solution {
+    margin-top: 580px;
+    margin-bottom:0;
+}
+
+.sucree-chic .case-study-section1 .left-side {
+    margin-top: 658px !important;
+}
+
+
+.sucree-chic .case-study-section2 {
+    display: none;
+}
+
+/* =========== SECTION3 ===========*/
+.sucree-chic .case-study-section3 .vertical-line1{
+    bottom:28%;
+}
+
+/* =========== SECTION8 ===========*/
+
+.sucree-chic .case-study-section8 .vertical-line1 {
+    bottom:31%;
+}
+
+.sucree-chic .case-study-section8 .vertical-line2 {
+    bottom: 20%;
+}
+
+.sucree-chic .case-study-section8 .vertical-line3 {
+    bottom:26%;
+}
+
+.sucree-chic .case-study-section8 .vertical-line4 {
+    bottom:33%;
+}
+
+.sucree-chic .case-study-section8 .vertical-line5 {
+    bottom:51%;
+}
+
+.sucree-chic .case-study-section8 .horizontal-line1 {
+    display: none;
+}
+
+
+.sucree-chic .case-study-section8 .horizontal-line2 {
+    right:18%;
+}
+
+.sucree-chic .case-study-section8 .feature1 img{
+    width:70px;
+    height:auto;
+}
+
+.sucree-chic .case-study-section8 .feature5 img{
+    width:38px;
+    height:auto;
 }
 
